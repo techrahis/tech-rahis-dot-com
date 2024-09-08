@@ -118,7 +118,7 @@ CLOUDFLARE_R2_CONFIG_OPTIONS = {
     "secret_key": config("CLOUDFLARE_R2_SECRET_KEY"),
 }
 
-AWS_S3_CUSTOM_DOMAIN = f"pub-95a9accfe57c4be5be0b8b1b4d28e9e2.r2.dev"
+AWS_S3_CUSTOM_DOMAIN = config("CLOUDFLARE_R2_PUBLIC_ENDPOINT")
 
 if not DEBUG:
     STORAGES = {
@@ -133,7 +133,7 @@ if not DEBUG:
     }
     
 else:
-    MEDIA_URL = f"https://pub-95a9accfe57c4be5be0b8b1b4d28e9e2.r2.dev/media/"
+    MEDIA_URL = f"https://{config("CLOUDFLARE_R2_PUBLIC_ENDPOINT")}/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

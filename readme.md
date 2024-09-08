@@ -2,21 +2,21 @@
 
 #### On Windows
 
-- python -m venv venv
+- python -m venv .venv
 
 #### On macOS/Linux
 
-- python3 -m venv venv
+- python3 -m venv .venv
 
 ### Activate the virtual environment
 
 #### On Windows Using Bash
 
-- source venv/Scripts/activate
+- source .venv/Scripts/activate
 
 #### On macOS/Linux
 
-- source venv/bin/activate
+- source .venv/bin/activate
 
 ### Install dependencies
 
