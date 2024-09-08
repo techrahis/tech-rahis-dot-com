@@ -1,0 +1,23 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="shortcut icon"
+          href="{% static 'image/favicon.png' %}"
+          type="image/x-icon">
+    <style>
+          html[data-theme="light"], :root {
+            --secondary: #7c3aed;
+            --breadcrumbs-bg: #8b5cf6;
+            --primary: #8b5cf6;
+            --accent: #fff;
+            }
+
+            html[data-theme="dark"], :root {
+                --secondary: #7c3aed;
+                --breadcrumbs-bg: #8b5cf6;
+                --primary: #8b5cf6;
+                --accent: #fff;
+                }
+    </style>
+{% endblock %}

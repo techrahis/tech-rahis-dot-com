@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+{% block title %}{{ project.title }}{% endblock %}
+{% block content %}
+    <div class="text-white mt-16 sm:mt-14">
+        <h1 class="font-montserrat text-2xl font-bold mb-4">{{ project.title }}</h1>
+        <img src="{{ project.cover_image.url }}"
+             alt="{{ project.title }}"
+             class="w-full md:w-1/2 h-64 object-cover rounded-md mb-4">
+        <p class="text-gray-300 mb-4">{{ project.short_description }}</p>
+        <p class="text-sm text-gray-500 mb-4">Technologies: {{ project.technologies }}</p>
+        <div class="prose lg:prose-xl mb-8">{{ project.long_description|safe }}</div>
+        {% if project.live_demo_url %}
+            <a href="{{ project.live_demo_url }}"
+               class="text-blue-500 hover:underline mr-4"
+               target="_blank">Live Demo</a>
+        {% endif %}
+        {% if project.source_code_url %}
+            <a href="{{ project.source_code_url }}"
+               class="text-blue-500 hover:underline mr-4"
+               target="_blank">Source Code</a>
+        {% endif %}
+        <a href="{% url 'projects' %}" class="text-blue-500 hover:underline">Back to Projects</a>
+    </div>
+{% endblock %}

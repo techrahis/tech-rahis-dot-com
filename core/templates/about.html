@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block title %}About{% endblock %}
+{% block content %}
+    <div class="text-white mt-16 sm:mt-14">
+        <h1 class="font-montserrat text-2xl font-bold mb-4">About</h1>
+        <p class="mb-4 font-opensans">
+            Hey there! I'm Rajarshi Samaddar, a full-stack software engineer from India with over 8 months of professional experience. My pronouns are he/they.
+        </p>
+        <p class="mb-4 font-opensans">
+            I focus on details and I'm passionate about crafting software products that look great and are both accessible and easy to maintain.
+        </p>
+        <img class="w-full max-h-[40vh] object-cover mb-4 rounded-lg"
+             src="{% static 'image/me.png' %}"
+             alt="My Image" />
+        <p class="mb-4 font-opensans">
+            I'm a huge advocate for open source and collaborating with the community. You can find my stash of websites, libraries, and apps on GitHub which have earned over 2K stars.
+        </p>
+        <p class="mb-4 font-opensans">
+            I'm all about diving into challenges improving and expanding my skillset and I thrive in globally-remote teams that value people and embrace trust, kindness, and inclusion.
+        </p>
+        <p class="mb-10 font-opensans">
+            If you're curious about the hardware and software tools I use every day, feel free to check out the utilities page.
+        </p>
+        <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">Let's connect!</h3>
+        <p class="mb-4 font-opensans">
+            Feel free to reach out to me at <b class="font-montserrat text-violet-500">me@techrahis.com</b>, or find me on social media:
+        </p>
+        <ul class="flex flex-wrap space-x-4 mb-10">
+            {% include "components/social_icon.html" %}
+        </ul>
+        <h3 class="font-montserrat text-xl font-bold mb-4 flex justify-start items-center gap-2">Skills</h3>
+        <h3 class="font-montserrat text-xl font-bold mb-4 flex justify-start items-center gap-2">Experiance</h3>
+        <h3 class="font-montserrat text-xl font-bold mb-4 flex justify-start items-center gap-2">Activity</h3>
+    </div>
+{% endblock %}

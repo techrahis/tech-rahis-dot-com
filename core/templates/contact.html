@@ -1,0 +1,101 @@
+{% extends "_base.html" %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+    <div class="text-white mt-16 sm:mt-14 md:w-2/3">
+        <h1 class="font-montserrat text-2xl font-bold mb-4">Contact Me</h1>
+        <p class="mb-10 font-opensans">This form is for professional inquiries only. Promotions are not accepted.</p>
+        <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">Let's connect!</h3>
+        <p class="mb-4">
+            Feel free to reach out to me at <b class="font-montserrat text-violet-500">me@techrahis.com</b>, or find me on social media:
+        </p>
+        <ul class="flex flex-wrap space-x-4 mb-10">
+            {% include "components/social_icon.html" %}
+        </ul>
+        <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">Send me a message</h3>
+        {% if success_message %}
+            <div class="bg-green-100 border border-emerald-400 text-emerald-700 px-4 py-3 rounded mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-xl"></i>
+                <span>{{ success_message }}</span>
+            </div>
+        {% endif %}
+        <form method="post" action="{% url 'contact' %}" id="contact-form">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="name" class="block text-md font-medium text-gray-100 font-inter">Full name</label>
+                <input type="text"
+                       id="name"
+                       name="name"
+                       value="{% if form.name.value %}{{ form.name.value }}{% else %}""{% endif %}"
+                       class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                {% if form_errors.name %}
+                    <div class="text-red-500">
+                        {% for error in form_errors.name %}
+                            <p class="mt-2 flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-4">
+                <label for="email"
+                       class="block text-sm font-medium text-gray-100 font-inter">Email</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       value="{% if form.email.value %}{{ form.email.value }}{% else %}""{% endif %}"
+                       class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                {% if form_errors.email %}
+                    <div class="text-red-500">
+                        {% for error in form_errors.email %}
+                            <p class="mt-2 flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-4">
+                <label for="subject"
+                       class="block text-sm font-medium text-gray-100 font-inter">Subject</label>
+                <input type="text"
+                       id="subject"
+                       name="subject"
+                       value="{% if form.subject.value %}{{ form.subject.value }}{% else %}""{% endif %}"
+                       class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                {% if form_errors.subject %}
+                    <div class="text-red-500">
+                        {% for error in form_errors.subject %}
+                            <p class="mt-2 flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="mb-12">
+                <label for="message"
+                       class="block text-sm font-medium text-gray-100 font-inter">Message</label>
+                <textarea id="message"
+                          name="message"
+                          class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-20 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none overflow-hidden scrollbar-hidden">{% if form.message.value %}{{ form.message.value }}{% endif %}</textarea>
+                {% if form_errors.message %}
+                    <div class="text-red-500">
+                        {% for error in form_errors.message %}
+                            <p class="mt-2 flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="hidden">{{ form.honeypot }}</div>
+            <div class="mb-12">
+                <button type="submit"
+                        class="rounded-md font-montserrat font-bold bg-violet-600 text-white py-2 px-4 w-full hover:bg-purple-600 duration-1000 transition-transform">
+                    Send Message <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

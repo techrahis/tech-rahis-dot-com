@@ -1,0 +1,398 @@
+{% extends "_base.html" %}
+{% block title %}Hire me{% endblock %}
+{% block content %}
+    <div class="text-white mt-16 sm:mt-14 mb-10">
+        <h1 class="font-montserrat text-2xl font-bold mb-4">Hire me</h1>
+        <p class="mb-10">
+            I'm currently seeking exciting opportunities, both full-time and freelance.  If you're looking for a skilled and motivated professional, I'd love to hear from you. Feel free to reach out with any inquiries, project ideas, or simply to connect!  Fill out the form below and we can start a conversation.
+        </p>
+        <h1 class="font-montserrat text-2xl font-bold mb-4">Explore my work</h1>
+        <p class="mb-4">If you'd like to learn more about my skills, projects, and professional background, feel free to:</p>
+        <ol class="space-y-1 mb-10">
+            <li>
+                <a href="https://github.com/"
+                   target="_blank"
+                   class="text-violet-600 hover:text-purple-600"><span class="text-white">1.</span> View my resume, skills, and experiances <span class="text-white">on the About page.</span></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/"
+                   target="_blank"
+                   class="text-violet-600 hover:text-purple-600"><span class="text-white">2.</span> Check out my projects <span class="text-white">on the Projects page.</span></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/"
+                   target="_blank"
+                   class="text-violet-600 hover:text-purple-600"><span class="text-white">3.</span> Expore my technical content <span class="text-white">on the Blogs page.</span> </a>
+            </li>
+        </ol>
+        <h1 class="font-montserrat text-2xl font-bold mb-4">Let's Collaborate</h1>
+        <div class="w-full sm:w-2/3">
+            {% if success_message %}
+                <div class="bg-green-100 border border-emerald-400 text-emerald-700 px-4 py-3 rounded mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-xl"></i>
+                    <span>{{ success_message }}</span>
+                </div>
+            {% endif %}
+            {% if error_message %}
+                <div class="bg-green-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-skull-crossbones text-xl"></i>
+                    <span>{{ error_message }}</span>
+                </div>
+            {% endif %}
+            <form method="post"
+                  action="{% url 'hire_me' %}"
+                  id="hire-form"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="name" class="block text-md font-medium text-gray-100 font-inter">Full name*</label>
+                    <input type="text"
+                           id="name"
+                           name="name"
+                           value="{% if form.name.value %}{{ form.name.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.name %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.name %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="email"
+                           class="block text-sm font-medium text-gray-100 font-inter">Email*</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           value="{% if form.email.value %}{{ form.email.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.email %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.email %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="phone_number"
+                           class="block text-sm font-medium text-gray-100 font-inter">Phone number</label>
+                    <input type="text"
+                           id="phone_number"
+                           name="phone_number"
+                           value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.phone_number %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.phone_number %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="opportunity_type"
+                           class="block text-sm font-medium text-gray-100 font-inter">Opportunity type</label>
+                    <select id="opportunity_type"
+                            name="opportunity_type"
+                            class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none">
+                        <option value="freelance"
+                                {% if form.opportunity_type.value == 'freelance' %}selected{% endif %}>
+                            Freelance
+                        </option>
+                        <option value="part_time"
+                                {% if form.opportunity_type.value == 'part_time' %}selected{% endif %}>
+                            Part-Time
+                        </option>
+                        <option value="full_time"
+                                {% if form.opportunity_type.value == 'full_time' %}selected{% endif %}>
+                            Full-Time
+                        </option>
+                    </select>
+                    {% if form_errors.opportunity_type %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.opportunity_type %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="job_title"
+                           class="block text-sm font-medium text-gray-100 font-inter">Job title*</label>
+                    <input type="text"
+                           id="job_title"
+                           name="job_title"
+                           value="{% if form.job_title.value %}{{ form.job_title.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.job_title %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.job_title %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="company_name"
+                           class="block text-sm font-medium text-gray-100 font-inter">Company name*</label>
+                    <input type="text"
+                           id="company_name"
+                           name="company_name"
+                           value="{% if form.company_name.value %}{{ form.company_name.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.company_name %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.company_name %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="job_description"
+                           class="block text-sm font-medium text-gray-100 font-inter">Job description*</label>
+                    <textarea id="job_description"
+                              name="job_description"
+                              class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-20 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none overflow-hidden scrollbar-hidden">{% if form.job_description.value %}{{ form.job_description.value }}{% endif %}</textarea>
+                    {% if form_errors.job_description %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.job_description %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="skills_required"
+                           class="block text-sm font-medium text-gray-100 font-inter">Skills required</label>
+                    <textarea id="skills_required"
+                              name="skills_required"
+                              class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-20 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none overflow-hidden scrollbar-hidden">{% if form.skills_required.value %}{{ form.skills_required.value }}{% endif %}</textarea>
+                    {% if form_errors.skills_required %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.skills_required %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4" id="freelance-fields" style="display: none;">
+                    <label for="project_scope"
+                           class="block text-sm font-medium text-gray-100 font-inter">Project scope</label>
+                    <textarea id="project_scope"
+                              name="project_scope"
+                              class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-20 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none overflow-hidden scrollbar-hidden">{% if form.project_scope.value %}{{ form.project_scope.value }}{% endif %}</textarea>
+                    {% if form_errors.project_scope %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.project_scope %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4" id="freelance-fields" style="display: none;">
+                    <label for="estimated_duration"
+                           class="block text-sm font-medium text-gray-100 font-inter">Estimated duration</label>
+                    <input type="text"
+                           id="estimated_duration"
+                           name="estimated_duration"
+                           value="{% if form.estimated_duration.value %}{{ form.estimated_duration.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.estimated_duration %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.estimated_duration %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4" id="freelance-fields" style="display: none;">
+                    <label for="budget"
+                           class="block text-sm font-medium text-gray-100 font-inter">Budget</label>
+                    <input type="text"
+                           id="budget"
+                           name="budget"
+                           value="{% if form.budget.value %}{{ form.budget.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.budget %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.budget %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4" id="full-time-fields" style="display: none;">
+                    <label for="location"
+                           class="block text-sm font-medium text-gray-100 font-inter">Location</label>
+                    <input type="text"
+                           id="location"
+                           name="location"
+                           value="{% if form.location.value %}{{ form.location.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.location %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.location %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4" id="full-time-fields" style="display: none;">
+                    <label for="salary_range"
+                           class="block text-sm font-medium text-gray-100 font-inter">Salary Range</label>
+                    <input type="text"
+                           id="salary_range"
+                           name="salary_range"
+                           value="{% if form.salary_range.value %}{{ form.salary_range.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.salary_range %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.salary_range %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4" id="full-time-fields" style="display: none;">
+                    <label for="benefits"
+                           class="block text-sm font-medium text-gray-100 font-inter">Benefits</label>
+                    <textarea id="benefits"
+                              name="benefits"
+                              class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-20 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none overflow-hidden scrollbar-hidden">{% if form.benefits.value %}{{ form.benefits.value }}{% endif %}</textarea>
+                    {% if form_errors.benefits %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.benefits %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="desired_start_date"
+                           class="block text-sm font-medium text-gray-100 font-inter">Desired start date*</label>
+                    <input type="date"
+                           id="desired_start_date"
+                           name="desired_start_date"
+                           value="{% if form.desired_start_date.value %}{{ form.desired_start_date.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.desired_start_date %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.desired_start_date %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="how_heard"
+                           class="block text-sm font-medium text-gray-100 font-inter">
+                        How did you hear about me?
+                    </label>
+                    <input type="text"
+                           id="how_heard"
+                           name="how_heard"
+                           value="{% if form.how_heard.value %}{{ form.how_heard.value }}{% else %}""{% endif %}"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form_errors.how_heard %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.how_heard %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-4">
+                    <label for="additional_comments"
+                           class="block text-sm font-medium text-gray-100 font-inter">Additional comments</label>
+                    <textarea id="additional_comments"
+                              name="additional_comments"
+                              class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-20 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none overflow-hidden scrollbar-hidden">{% if form.additional_comments.value %}{{ form.additional_comments.value }}{% endif %}</textarea>
+                    {% if form_errors.additional_comments %}
+                        <div class="text-red-500">
+                            {% for error in form_errors.additional_comments %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mb-10">
+                    <label for="relevant_file"
+                           class="block text-sm font-medium text-gray-100 font-inter">Upload any relevant file</label>
+                    <input type="file"
+                           id="relevant_file"
+                           name="relevant_file"
+                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-10 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none" />
+                    {% if form.errors.relevant_file %}
+                        <div class="text-red-500">
+                            {% for error in form.errors.relevant_file %}
+                                <p class="mt-2 flex items-center gap-2">
+                                    <i class="fa-solid fa-triangle-exclamation"></i> {{ error }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div>
+                    <button type="submit"
+                            class="px-4 py-2 w-full bg-violet-600 text-gray-950 font-montserrat font-bold rounded-md hover:bg-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const opportunityType = document.getElementById('opportunity_type');
+            const freelanceFields = document.querySelectorAll('#freelance-fields');
+            const fullTimeFields = document.querySelectorAll('#full-time-fields');
+        
+            function updateFields() {
+                const selectedValue = opportunityType.value;
+                freelanceFields.forEach(field => field.style.display = selectedValue === 'freelance' ? 'block' : 'none');
+                fullTimeFields.forEach(field => field.style.display = selectedValue === 'full_time' ? 'block' : 'none');
+            }
+        
+            opportunityType.addEventListener('change', updateFields);
+            updateFields(); // Initial update based on default or pre-selected value
+        });
+</script>
+{% endblock %}
