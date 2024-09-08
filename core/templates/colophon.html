@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+{% block title %}Colophon{% endblock %}
+{% block content %}
+    <div class="text-white mt-16 mb-12 sm:mt-14">
+        <h1 class="font-montserrat text-2xl font-bold mb-6">Colophon</h1>
+        <p class="text-sm mb-6">Last Updated: Sun 08 Sep 2024</p>
+        <p class="mb-6">
+            This site was meticulously crafted using a variety of technologies and services to ensure its performance, security, and reliability. Below is a brief overview of the tools and platforms powering TechRahis.
+        </p>
+        <div class="space-y-8">
+            <!-- Section 1: Backend -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">1. Backend</h2>
+                <p>
+                    The backend is built with <strong>Django</strong>, a high-level Python web framework that encourages rapid development and clean, pragmatic design. The data is stored securely in <strong>PostgreSQL</strong>, a powerful, open-source object-relational database system known for its robustness and scalability. For in-memory data storage and caching, I use <strong>Redis</strong>, which ensures fast access to frequently requested data.
+                </p>
+            </div>
+            <!-- Section 2: Frontend and Hosting -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">2. Frontend & Hosting</h2>
+                <p>
+                    The frontend is developed using modern web technologies and hosted on <strong>Vercel</strong>, a platform for frontend frameworks and static sites that handles the deployment with seamless integration and automatic scaling.
+                </p>
+            </div>
+            <!-- Section 3: Security and Performance -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">3. Security & Performance</h2>
+                <p>
+                    To ensure site security, performance, and efficient global content delivery, I rely on <strong>Cloudflare</strong>. It provides DDoS protection, caching, and a global content delivery network (CDN) that reduces latency and enhances site performance for visitors worldwide.
+                </p>
+            </div>
+            <!-- Section 4: Version Control and Deployment -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">4. Version Control & Continuous Integration</h2>
+                <p>
+                    The source code for this website is maintained and versioned using <strong>Git</strong> and hosted on <strong>GitHub</strong>. Vercel integrates seamlessly with GitHub, enabling continuous deployment with each update.
+                </p>
+            </div>
+            <!-- Section 5: Design and Styling -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">5. Design & Styling</h2>
+                <p>
+                    The design of this site is styled with <strong>Tailwind CSS</strong>, a utility-first CSS framework. It allows for rapid development and ensures a responsive, clean, and consistent design across devices.
+                </p>
+            </div>
+            <p class="mt-6 text-gray-300">
+                I am grateful for these incredible open-source tools and services that help me bring this site to life and deliver a seamless user experience.
+            </p>
+        </div>
+    </div>
+{% endblock %}

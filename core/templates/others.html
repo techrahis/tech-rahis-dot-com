@@ -2,27 +2,19 @@
 {% block title %}Others{% endblock %}
 {% block content %}
     <div class="text-white mt-16 sm:mt-14 md:w-2/3">
-        <h1 class="font-montserrat text-2xl font-bold mb-4">Others 🚧</h1>
-        <ol class="space-y-1">
+        <h1 class="font-montserrat text-2xl font-bold mb-6">Other Important Pages</h1>
+        <ol class="space-y-2">
             <li>
-                <a href="https://github.com/"
-                   target="_blank"
+                <a href="{% url 'privacy_policy' %}"
                    class="text-violet-600 hover:text-purple-600"><span class="text-white">1.</span> Privacy policy</a>
             </li>
             <li>
-                <a href="https://www.linkedin.com/in/"
-                   target="_blank"
-                   class="text-violet-600 hover:text-purple-600"><span class="text-white">2.</span> Terms and conditions</a>
+                <a href="{% url 'terms_of_service' %}"
+                   class="text-violet-600 hover:text-purple-600"><span class="text-white">2.</span> Terms of Service</a>
             </li>
             <li>
-                <a href="https://www.instagram.com/"
-                   target="_blank"
-                   class="text-violet-600 hover:text-purple-600"><span class="text-white">3.</span> Notes</a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/"
-                   target="_blank"
-                   class="text-violet-600 hover:text-purple-600"><span class="text-white">4.</span> Snippets</a>
+                <a href="{% url 'colophon' %}"
+                   class="text-violet-600 hover:text-purple-600"><span class="text-white">3.</span> Colophon</a>
             </li>
         </ol>
     </div>

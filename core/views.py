@@ -66,3 +66,12 @@ def hire_me(request):
         'success_message': success_message,
         'error_message': error_message,
     })
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+
+def terms_of_service(request):
+    return render(request, 'terms_of_service.html')
+
+def colophon(request):
+    return render(request, 'colophon.html')

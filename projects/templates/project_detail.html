@@ -2,23 +2,30 @@
 {% block title %}{{ project.title }}{% endblock %}
 {% block content %}
     <div class="text-white mt-16 sm:mt-14">
-        <h1 class="font-montserrat text-2xl font-bold mb-4">{{ project.title }}</h1>
+        <h1 class="font-montserrat text-5xl font-bold mb-8 text-center">{{ project.title }}</h1>
         <img src="{{ project.cover_image.url }}"
              alt="{{ project.title }}"
-             class="w-full md:w-1/2 h-64 object-cover rounded-md mb-4">
-        <p class="text-gray-300 mb-4">{{ project.short_description }}</p>
-        <p class="text-sm text-gray-500 mb-4">Technologies: {{ project.technologies }}</p>
-        <div class="prose lg:prose-xl mb-8">{{ project.long_description|safe }}</div>
+             class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8">
+        <h3 class="text-gray-100 text-xl font-semibold mb-4">Published on {{ project.date|date:"F d, Y" }}</h3>
+        <p class="text-gray-200 mb-4">{{ project.short_description }}</p>
+        <h3 class="text-gray-100 text-2xl font-semibold mb-4">Crafted With</h3>
+        <div class="flex flex-wrap">
+            {% for technology in project.technologies_list %}
+                <span class="bg-purple-600 text-gray-200 text-xs font-bold font-inter py-1 px-2 rounded-full mr-2 mb-2">{{ technology }}</span>
+            {% endfor %}
+        </div>
         {% if project.live_demo_url %}
+            <h3 class="text-gray-100 text-2xl font-semibold mt-4">Live View</h3>
             <a href="{{ project.live_demo_url }}"
-               class="text-blue-500 hover:underline mr-4"
-               target="_blank">Live Demo</a>
+               class="text-purple-600 hover:underline"
+               target="_blank">{{ project.live_demo_url }}</a>
         {% endif %}
         {% if project.source_code_url %}
+            <h3 class="text-gray-100 text-2xl font-semibold mt-4">Source Code</h3>
             <a href="{{ project.source_code_url }}"
-               class="text-blue-500 hover:underline mr-4"
-               target="_blank">Source Code</a>
+               class="text-purple-600 hover:underline"
+               target="_blank">{{ project.source_code_url }}</a>
         {% endif %}
-        <a href="{% url 'projects' %}" class="text-blue-500 hover:underline">Back to Projects</a>
+        <div class="prose w-full max-w-none mt-6 mb-8">{{ project.long_description|safe }}</div>
     </div>
 {% endblock %}

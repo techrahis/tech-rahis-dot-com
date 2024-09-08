@@ -2,17 +2,22 @@ from django.shortcuts import render, get_object_or_404
 from .models import Project
 import markdown
 
+from django.shortcuts import render, get_object_or_404
+import markdown
+
 def projects(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all()    
     for project in projects:
         project.long_description = markdown.markdown(project.long_description, extensions=['extra'])
+        project.technologies_list = project.technologies.split(',')
     return render(request, 'projects.html', {'projects': projects})
 
-
-def project_detail(request, project_id):
-    project = get_object_or_404(Project, id=project_id)
+def project_detail(request, slug):
+    project = get_object_or_404(Project, slug=slug)
     project.long_description = markdown.markdown(project.long_description, extensions=['extra'])
+    project.technologies_list = project.technologies.split(',')
     return render(request, 'project_detail.html', {'project': project})
+
 
 
 # from django.shortcuts import render, get_object_or_404

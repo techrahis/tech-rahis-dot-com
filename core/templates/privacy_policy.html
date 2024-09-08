@@ -1,0 +1,71 @@
+{% extends "_base.html" %}
+{% block title %}Privacy Policy{% endblock %}
+{% block content %}
+    <div class="text-white mt-16 mb-12 sm:mt-14">
+        <h1 class="font-montserrat text-2xl font-bold mb-6">Privacy Policy</h1>
+        <p class="text-sm mb-6">Last Updated: Sun 08 Sep 2024</p>
+        <p class="mb-6">
+            Welcome to TechRahis's Privacy Policy. Your privacy is a top priority for me. This policy outlines how I gather, utilize, and secure your personal information when you engage with my website and services. Please take a moment to review this document to understand my practices.
+        </p>
+        <div class="space-y-8">
+            <!-- Section 1 -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">1. Information Collection</h2>
+                <p>
+                    I collect limited data through Google Analytics to enhance your user experience. This includes information like visited pages, IP address, browser type, and device details. The collected data is instrumental in refining my website's functionality and content.
+                </p>
+            </div>
+            <!-- Section 2 -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">2. Use of Your Information</h2>
+                <p>
+                    Information gathered via Google Analytics is strictly utilized to comprehend user behavior and optimize my website's performance. Your data is never sold, rented, or shared with third parties, ensuring your privacy is maintained.
+                </p>
+            </div>
+            <!-- Section 3 -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">3. Cookies and Tracking</h2>
+                <p>
+                    To improve your interactions with my website, I employ cookies and tracking technologies. You have the ability to manage your cookie preferences in your browser settings; however, disabling cookies may impact your overall experience.
+                </p>
+            </div>
+            <!-- Section 4 -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">4. Data Security</h2>
+                <p>
+                    I implement reasonable measures to safeguard your data. It's important to note that while I strive for the highest level of security, no method of internet transmission is entirely foolproof.
+                </p>
+            </div>
+            <!-- Section 5 -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">5. Third-Party Links</h2>
+                <p>
+                    My website may feature links to third-party sites. I do not control their content or privacy policies. I recommend reviewing their policies before providing any personal information on these external sites.
+                </p>
+            </div>
+            <!-- Section 6 -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">6. Children's Privacy</h2>
+                <p>
+                    TechRahis is not designed for users under the age of 13. If you believe a child has shared personal information, please contact me for appropriate action.
+                </p>
+            </div>
+            <!-- Section 7 -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">7. Changes to This Policy</h2>
+                <p>
+                    I may revise this Privacy Policy without prior notice. Any changes take effect immediately upon posting. Please check the revision date at the top for the most recent version.
+                </p>
+            </div>
+            <!-- Section 8 -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-2">8. Contact Me</h2>
+                <p>
+                    If you have questions or concerns, feel free to reach out to me through <a href="{% url 'contact' %}" class="text-violet-500 hover:underline">contact page.</a>.
+                </p>
+            </div>
+            <p class="mt-6 text-gray-300">
+                By utilizing FileFlipper, you agree to abide by this Privacy Policy. If you do not agree, please discontinue using my services. I appreciate your trust in me with your privacy.
+            </p>
+        </div>
+    {% endblock %}

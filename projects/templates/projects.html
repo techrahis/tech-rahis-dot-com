@@ -9,24 +9,25 @@
     </div>
     <div class="space-y-8 text-white mb-10">
         {% for project in projects %}
-            <div class="flex flex-col bg-slate-900 rounded-md md:flex-row items-center mb-8">
-                <img src="{{ project.cover_image.url }}"
-                     alt="{{ project.title }}"
-                     class="w-full md:w-1/3 h-48 object-cover rounded-md mb-4 md:mb-0">
-                <div class="md:ml-6">
-                    <h3 class="text-2xl font-semibold mb-2">{{ project.title }}</h3>
-                    <p class="text-gray-300 mb-4">{{ project.short_description }}</p>
-                    <p class="text-sm text-gray-500 mb-4">Technologies: {{ project.technologies }}</p>
-                    <a href="{{ project.live_demo_url }}"
-                       class="text-blue-500 hover:underline mr-4"
-                       target="_blank">Live Demo</a>
-                    <a href="{{ project.source_code_url }}"
-                       class="text-blue-500 hover:underline mr-4"
-                       target="_blank">Source Code</a>
-                    <a href="{% url 'project_detail' project.id %}"
-                       class="text-blue-500 hover:underline">View Details</a>
+            <a href="{% url 'project_detail' project.slug %}">
+                <div class="flex flex-col bg-slate-900 rounded-md md:flex-row items-center mb-8 hover:bg-purple-600">
+                    <img src="{{ project.thumbnail.url }}"
+                         alt="{{ project.title }}"
+                         class="w-full md:w-1/4 h-56 rounded-tl-md rounded-tr-md rounded-bl-none md:rounded-tr-none md:rounded-bl-md object-cover mb-4 md:mb-0">
+                    <div class="mt-4 md:mt-6 mb-2 mx-2 md:ml-6">
+                        <h3 class="text-2xl font-montserrat font-semibold mb-4 flex justify-between mr-2 items-center">
+                            {{ project.title }}<i class="fa-solid fa-arrow-right"></i>
+                        </h3>
+                        <p class="text-lg font-bold text-gray-200 mb-2">{{ project.date|date:"F d, Y" }}</p>
+                        <p class="text-gray-200 mb-6">{{ project.short_description|truncatechars:135 }}</p>
+                        <div class="flex flex-wrap">
+                            {% for technology in project.technologies_list %}
+                                <span class="bg-violet-500 text-gray-50 text-xs font-bold font-inter py-1 px-2 rounded-full mr-2 mb-2">{{ technology }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
         {% endfor %}
     </div>
 {% endblock %}
