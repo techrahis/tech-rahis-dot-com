@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "blogs",
     "projects",
     "compressor",
+    "storages"
 ]
 
 COMPRESS_ROOT = BASE_DIR / 'static'
@@ -112,13 +113,16 @@ CLOUDFLARE_R2_BUCKET_ENDPOINT = config('CLOUDFLARE_R2_BUCKET_ENDPOINT')
 CLOUDFLARE_R2_CONFIG_OPTIONS = {
     "bucket_name": CLOUDFLARE_R2_BUCKET,
     "default_acl": "public-read",
-    "signature_version": "s3v4",
     "endpoint_url": config("CLOUDFLARE_R2_BUCKET_ENDPOINT"),
     "access_key": config("CLOUDFLARE_R2_ACCESS_KEY_ID"),
     "secret_key": config("CLOUDFLARE_R2_SECRET_KEY"),
 }
 
 AWS_S3_CUSTOM_DOMAIN = config("CLOUDFLARE_R2_PUBLIC_ENDPOINT")
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
 
 if not DEBUG:
     STORAGES = {
