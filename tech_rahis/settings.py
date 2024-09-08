@@ -118,6 +118,9 @@ CLOUDFLARE_R2_CONFIG_OPTIONS = {
     "secret_key": config("CLOUDFLARE_R2_SECRET_KEY"),
 }
 
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_SECURE_URLS = False
+
 if not DEBUG:
     STORAGES = {
         "default": {
