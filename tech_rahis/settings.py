@@ -112,7 +112,7 @@ CLOUDFLARE_R2_BUCKET_ENDPOINT = config('CLOUDFLARE_R2_BUCKET_ENDPOINT')
 CLOUDFLARE_R2_CONFIG_OPTIONS = {
     "bucket_name": CLOUDFLARE_R2_BUCKET,
     "default_acl": "public-read",
-    "signature_version": "s3v4",
+    "signature_version": "None",
     "endpoint_url": config("CLOUDFLARE_R2_BUCKET_ENDPOINT"),
     "access_key": config("CLOUDFLARE_R2_ACCESS_KEY_ID"),
     "secret_key": config("CLOUDFLARE_R2_SECRET_KEY"),
