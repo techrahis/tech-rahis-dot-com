@@ -118,7 +118,7 @@ CLOUDFLARE_R2_CONFIG_OPTIONS = {
     "secret_key": config("CLOUDFLARE_R2_SECRET_KEY"),
 }
 
-AWS_S3_SECURE_URLS = False
+AWS_S3_CUSTOM_DOMAIN = f"pub-95a9accfe57c4be5be0b8b1b4d28e9e2.r2.dev"
 
 if not DEBUG:
     STORAGES = {
