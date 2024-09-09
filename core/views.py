@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from .forms import *
+from projects.models import Project
 
 def home(request):
-    return render(request, 'home.html')
+    projects = Project.objects.only('id', 'title', 'date', 'short_description', 'thumbnail', 'slug').order_by('-date')
+    return render(request, 'home.html', {'projects': projects})
 
 def about(request):
     return render(request, 'about.html')

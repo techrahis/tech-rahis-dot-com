@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}About{% endblock %}
 {% block content %}
-    <div class="text-white mt-16 sm:mt-14">
+    <div class="text-white mt-4 md:mt-16">
         <h1 class="font-montserrat text-2xl font-bold mb-4">About</h1>
         <p class="mb-4 font-opensans">
             Hey there! I'm Rajarshi Samaddar, a full-stack software engineer from India with over 8 months of professional experience. My pronouns are he/they.
@@ -10,8 +10,8 @@
         <p class="mb-4 font-opensans">
             I focus on details and I'm passionate about crafting software products that look great and are both accessible and easy to maintain.
         </p>
-        <img class="w-full max-h-[40vh] object-cover mb-4 rounded-lg"
-             src="{% static 'image/me.png' %}"
+        <img class="w-full max-h-[60vh] object-cover mb-4 rounded-lg"
+             src="{% static 'image/about-me.png' %}"
              alt="My Image" />
         <p class="mb-4 font-opensans">
             I'm a huge advocate for open source and collaborating with the community. You can find my stash of websites, libraries, and apps on GitHub which have earned over 2K stars.
@@ -30,7 +30,63 @@
             {% include "components/social_icon.html" %}
         </ul>
         <h3 class="font-montserrat text-xl font-bold mb-4 flex justify-start items-center gap-2">Skills</h3>
-        <h3 class="font-montserrat text-xl font-bold mb-4 flex justify-start items-center gap-2">Experiance</h3>
-        <h3 class="font-montserrat text-xl font-bold mb-4 flex justify-start items-center gap-2">Activity</h3>
+        <table class="table-auto w-full text-left">
+            <tbody>
+                <tr>
+                    <td class="border px-4 py-2">Front-End Technologies</td>
+                    <td class="border px-4 py-2">Next.js, React, Redux, Tailwind CSS, Material UI, Bootstrap</td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2">Back-End Development</td>
+                    <td class="border px-4 py-2">Node.js, Express, Django, Prisma, Sequelize, PostgreSQL, MongoDB, AWS</td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2">Soft Skills</td>
+                    <td class="border px-4 py-2">Problem-solving, Teamwork, Communication, Attention to Detail, Leadership</td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2">Languages</td>
+                    <td class="border px-4 py-2">English (Intermediate), Hindi (Fluent), Bengali (Native)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 class="font-montserrat text-xl font-bold mb-4 flex justify-start items-center mt-10 gap-2">Experience</h3>
+        <div class="experience-section">
+            <div class="experience-item mb-6">
+                <h4 class="text-lg font-semibold">Jr. Web Developer</h4>
+                <p class="text-sm text-gray-300">July 2024 - Present</p>
+                <p class="text-sm text-gray-300">Grey Mirror Private Limited, Kolkata, Full time</p>
+                <ul class="list-disc list-inside mt-2">
+                    <li>
+                        Enhanced system performance and stability by optimizing Redis cache utilization, leading to a 15% increase in application responsiveness.
+                    </li>
+                    <li>Deployed and managed Aerospike database for real-time data processing, improving data retrieval speed by 25%.</li>
+                </ul>
+            </div>
+            <div class="experience-item mb-6">
+                <h4 class="text-lg font-semibold">Full-Stack MERN Developer</h4>
+                <p class="text-sm text-gray-300">April 2024 - July 2024</p>
+                <p class="text-sm text-gray-300">Hnaya Educational Services Private Limited, Remote, Freelance</p>
+                <ul class="list-disc list-inside mt-2">
+                    <li>
+                        Boosted site speed for BharatLinkr.com by 300% through expert utilization of Next.js, React, and AWS technologies.
+                    </li>
+                    <li>Slashed AWS operational costs from $350 to $170 within a tight 24-day timeframe.</li>
+                    <li>
+                        Engineered 23 APIs using Node.js, Express, and PostgreSQL while leading and mentoring a 4-member team, contributing to the recruitment of 3 additional talents.
+                    </li>
+                </ul>
+            </div>
+            <div class="experience-item mb-6">
+                <h4 class="text-lg font-semibold">React Developer</h4>
+                <p class="text-sm text-gray-300">May 2023 - August 2023</p>
+                <p class="text-sm text-gray-300">Celebal Technologies Private Limited, Remote, Intern</p>
+                <ul class="list-disc list-inside mt-2">
+                    <li>
+                        Ranked top among 400+ interns in the training program, developing SkyCast, a weather app with user registration, location-based weather, and customizable themes.
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -30,6 +30,10 @@
   z-index: 10;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 input {
   color-scheme: dark;
 }

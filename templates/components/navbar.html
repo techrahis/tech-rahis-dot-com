@@ -1,6 +1,6 @@
 <nav class="gradient-border-bottom fixed-navbar border-gray-600 text-slate-100 bg-gray-950 px-4 sm:px-0">
     <div>
-        <div class="max-w-4xl mx-auto mt-4 sm:mt-0 h-[6vh] sm:h-[10vh] flex justify-between items-center">
+        <div class="max-w-4xl mx-auto mt-2 md:mt-4 sm:mt-0 h-[6vh] sm:h-[10vh] flex justify-between items-center">
             <div class="font-press-start text-md">
                 <a href="{% url 'home' %}">
                     <p>
@@ -9,12 +9,38 @@
                 </a>
             </div>
             <div class="hidden sm:block">{% include "./header_list.html" %}</div>
-            <a href="{% url 'hire_me' %}">
+            <a class="hidden md:block" href="{% url 'hire_me' %}">
                 <button class="bg-violet-500 hover:bg-purple-600 border-2 border-white border-opacity-20 shadow-lg text-gray-950 font-bold py-1 px-2 sm:py-2 sm:px-4 rounded font-montserrat">
                     Hire Me
                 </button>
             </a>
+            <a class="block md:hidden"
+               href="javascript:void(0);"
+               onclick="openModal()">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </a>
         </div>
-        <div class="block sm:hidden mt-3 mb-2">{% include "./header_list.html" %}</div>
+        {% comment %} <div class="block sm:hidden mt-3 mb-2">{% include "./header_list.html" %}</div> {% endcomment %}
     </div>
 </nav>
+<!-- Fullscreen Modal -->
+<div id="fullscreenModal"
+     class="fixed inset-0 bg-gray-900 bg-opacity-90 hidden z-50">
+    <div class="flex justify-end p-4">
+        <button onclick="closeModal()" class="text-white text-3xl">&times;</button>
+    </div>
+    <div class="flex justify-center items-center h-full">
+        <div class="text-white text-center">{% include "./header_list.html" %}</div>
+    </div>
+</div>
+<script>
+function openModal() {
+    document.getElementById('fullscreenModal').style.display = 'block';
+    document.body.classList.add('no-scroll');
+}
+
+function closeModal() {
+    document.getElementById('fullscreenModal').style.display = 'none';
+    document.body.classList.remove('no-scroll');
+}
+</script>
