@@ -1,10 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Project
 import markdown
-
-from django.shortcuts import render, get_object_or_404
-import markdown
-
 def projects(request):
     projects = Project.objects.all()    
     for project in projects:
