@@ -77,3 +77,6 @@ def terms_of_service(request):
 
 def colophon(request):
     return render(request, 'colophon.html')
+
+def get_free_consultation(request):
+    return render(request, 'get_free_consultation.html')

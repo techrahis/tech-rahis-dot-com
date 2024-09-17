@@ -15,6 +15,7 @@ urlpatterns = [
     path('terms-of-service/', views.terms_of_service, name='terms_of_service'),
     path('colophon/', views.colophon, name='colophon'),
     path("not-found/", views.not_found_page, name="not_found_page"),
+    path("get-free-consultation/", views.get_free_consultation, name="get_free_consultation"),
 ]
 
 if settings.DEBUG:
