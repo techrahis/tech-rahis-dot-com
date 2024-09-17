@@ -3,9 +3,15 @@ from .models import Portfolio
 import markdown
 
 def portfolios(request):
-    portfolios = Portfolio.objects.only('id', 'title', 'date', 'short_description', 'thumbnail', 'slug').order_by('-date')
+    category = request.GET.get('category')
+    if category:
+        portfolios = Portfolio.objects.filter(category=category).only('id', 'title', 'date', 'short_description', 'thumbnail', 'slug').order_by('-date')
+    else:
+        portfolios = Portfolio.objects.only('id', 'title', 'date', 'short_description', 'thumbnail', 'slug').order_by('-date')
+    
     for portfolio in portfolios:
         portfolio.technologies_list = portfolio.technologies.split(',')
+    
     return render(request, 'portfolio.html', {'portfolios': portfolios})
 
 def portfolio_detail(request, slug):
