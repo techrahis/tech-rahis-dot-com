@@ -1,25 +1,31 @@
 {% extends "_base.html" %}
 {% block title %}Contact{% endblock %}
 {% block content %}
-    <div class="text-white mt-4 md:mt-16 md:w-2/3">
+    <div class="text-white mt-4 md:mt-16 md:w-4/5">
         <h1 class="font-montserrat text-2xl font-bold mb-4">Contact Me</h1>
-        <p class="mb-10 font-opensans">This form is for professional inquiries only. Promotions are not accepted.</p>
+        <p class="mb-10 font-opensans">
+            I typically respond within 24 hours. Please use this form for professional inquiries only. Promotions and spam will not be entertained.
+        </p>
         <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">Let's connect!</h3>
         <p class="mb-4">
-            Feel free to reach out to me at <b class="font-montserrat text-violet-500">me@techrahis.com</b>, or find me on social media:
+            Feel free to reach out to me at <b class="font-montserrat text-violet-500">hi@techrahis.com</b>, or find me on social media:
         </p>
         <ul class="flex flex-wrap space-x-4 mb-10">
             {% include "components/social_icon.html" %}
         </ul>
         <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">Send me a message</h3>
         {% if success_message %}
-            <div class="bg-green-100 border border-emerald-400 text-emerald-700 px-4 py-3 rounded mb-6 flex items-center gap-2">
+            <div class="bg-green-100 border border-emerald-400 md:w-4/5 text-emerald-700 px-4 py-3 rounded mb-6 flex items-center gap-2">
                 <i class="fa-solid fa-circle-check text-xl"></i>
-                <span>{{ success_message }}</span>
+                <span>{{ success_message }}. I'll get back to you within 24 hours.</span>
             </div>
         {% endif %}
-        <form method="post" action="{% url 'contact' %}" id="contact-form">
+        <form class="md:w-4/5"
+              method="post"
+              action="{% url 'contact' %}"
+              id="contact-form">
             {% csrf_token %}
+            <!-- Full Name Field -->
             <div class="mb-4">
                 <label for="name" class="block text-md font-medium text-gray-100 font-inter">Full name</label>
                 <input type="text"
@@ -37,9 +43,10 @@
                     </div>
                 {% endif %}
             </div>
+            <!-- Email Field -->
             <div class="mb-4">
                 <label for="email"
-                       class="block text-sm font-medium text-gray-100 font-inter">Email</label>
+                       class="block text-md font-medium text-gray-100 font-inter">Email</label>
                 <input type="email"
                        id="email"
                        name="email"
@@ -55,9 +62,10 @@
                     </div>
                 {% endif %}
             </div>
+            <!-- Subject Field -->
             <div class="mb-4">
                 <label for="subject"
-                       class="block text-sm font-medium text-gray-100 font-inter">Subject</label>
+                       class="block text-md font-medium text-gray-100 font-inter">Subject</label>
                 <input type="text"
                        id="subject"
                        name="subject"
@@ -73,9 +81,10 @@
                     </div>
                 {% endif %}
             </div>
+            <!-- Message Field -->
             <div class="mb-12">
                 <label for="message"
-                       class="block text-sm font-medium text-gray-100 font-inter">Message</label>
+                       class="block text-md font-medium text-gray-100 font-inter">Message</label>
                 <textarea id="message"
                           name="message"
                           class="rounded-md form-input px-2 py-1 mt-2 block w-full bg-transparent h-20 text-gray-300 focus:border-violet-600 focus:border-opacity-50 border border-gray-100 border-opacity-50 focus:outline-none overflow-hidden scrollbar-hidden">{% if form.message.value %}{{ form.message.value }}{% endif %}</textarea>
@@ -89,13 +98,19 @@
                     </div>
                 {% endif %}
             </div>
+            <!-- Honeypot Field (Hidden) -->
             <div class="hidden">{{ form.honeypot }}</div>
+            <!-- Submit Button -->
             <div class="mb-12">
                 <button type="submit"
                         class="rounded-md font-montserrat font-bold bg-violet-600 text-white py-2 px-4 w-full hover:bg-purple-600 duration-1000 transition-transform">
-                    Send Message <i class="fa-solid fa-paper-plane"></i>
+                    Send Your Message <i class="fa-solid fa-paper-plane"></i>
                 </button>
             </div>
+            <!-- Privacy Note -->
+            <p class="text-gray-400 text-xs mt-2">
+                Your information will only be used to respond to your inquiry. We value your privacy and will not share your details with any third parties.
+            </p>
         </form>
     </div>
 {% endblock %}
