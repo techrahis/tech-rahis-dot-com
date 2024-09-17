@@ -1,3 +1,4 @@
+# Stage 1: Builder
 FROM python:3-alpine AS builder
 
 WORKDIR /app
@@ -9,7 +10,12 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-# Stage 2
+COPY . .
+
+# Run collectstatic
+RUN python manage.py collectstatic --noinput
+
+# Stage 2: Runner
 FROM python:3-alpine AS runner
 
 ENV VIRTUAL_ENV=/app/venv
@@ -18,15 +24,7 @@ ENV PORT=8000
 
 WORKDIR /app
 
-COPY --from=builder /app/venv venv
-COPY blogs blogs
-COPY core core
-COPY helpers helpers
-COPY portfolios portfolios
-COPY static static
-COPY tech_rahis tech_rahis
-COPY templates templates
-COPY manage.py .
+COPY --from=builder /app /app
 
 EXPOSE ${PORT}
 
