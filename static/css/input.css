@@ -47,7 +47,6 @@ option:hover {
   background-color: #9500ff;
 }
 
-/* Base Styles for Markdown in Dark Mode */
 .prose h1,
 .prose h2,
 .prose h3,
@@ -79,16 +78,12 @@ option:hover {
   @apply list-disc pl-6 mb-4;
 }
 
+.prose li {
+  @apply text-gray-200;
+}
+
 .prose blockquote {
   @apply border-l-4 border-gray-600 pl-4 italic mb-4 text-gray-200;
-}
-
-.prose code {
-  @apply bg-gray-700 p-1 rounded text-sm text-gray-100;
-}
-
-.prose pre {
-  @apply bg-gray-900 text-gray-100 p-4 rounded overflow-x-auto mb-4;
 }
 
 .prose table {
@@ -104,10 +99,6 @@ option:hover {
   @apply bg-gray-200;
 }
 
-.prose li {
-  @apply text-gray-200;
-}
-
 .prose img {
   @apply max-w-full h-auto rounded mb-4;
 }
@@ -116,12 +107,26 @@ option:hover {
   @apply max-w-full h-auto rounded mb-4;
 }
 
-/* Embeds */
 .prose iframe {
   @apply max-w-full h-auto rounded mb-4;
 }
 
-/* Specific Embeds Styles */
+.prose hr {
+  @apply border-gray-600 my-8;
+}
+
+.prose a {
+  @apply text-violet-500 hover:underline;
+}
+
+.prose sup {
+  @apply text-blue-300;
+}
+
+.prose del {
+  @apply line-through;
+}
+
 .prose .youtube,
 .prose .twitter-tweet,
 .prose .github-repo {

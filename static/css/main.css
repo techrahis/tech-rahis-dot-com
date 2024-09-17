@@ -1165,6 +1165,10 @@ video {
   margin-top: 10vh;
 }
 
+.mt-20{
+  margin-top: 5rem;
+}
+
 .block{
   display: block;
 }
@@ -1558,6 +1562,14 @@ video {
   padding-bottom: 1rem;
 }
 
+.pt-20{
+  padding-top: 5rem;
+}
+
+.pt-4{
+  padding-top: 1rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -1807,8 +1819,6 @@ option:hover {
   background-color: #9500ff;
 }
 
-/* Base Styles for Markdown in Dark Mode */
-
 .prose h1,
 .prose h2,
 .prose h3,
@@ -1854,6 +1864,11 @@ option:hover {
   padding-left: 1.5rem;
 }
 
+.prose li{
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+
 .prose blockquote{
   margin-bottom: 1rem;
   border-left-width: 4px;
@@ -1863,28 +1878,6 @@ option:hover {
   font-style: italic;
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
-}
-
-.prose code{
-  border-radius: 0.25rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-  padding: 0.25rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity));
-}
-
-.prose pre{
-  margin-bottom: 1rem;
-  overflow-x: auto;
-  border-radius: 0.25rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-  padding: 1rem;
-  --tw-text-opacity: 1;
-  color: rgb(243 244 246 / var(--tw-text-opacity));
 }
 
 .prose table{
@@ -1911,11 +1904,6 @@ option:hover {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-.prose li{
-  --tw-text-opacity: 1;
-  color: rgb(229 231 235 / var(--tw-text-opacity));
-}
-
 .prose img{
   margin-bottom: 1rem;
   height: auto;
@@ -1930,8 +1918,6 @@ option:hover {
   border-radius: 0.25rem;
 }
 
-/* Embeds */
-
 .prose iframe{
   margin-bottom: 1rem;
   height: auto;
@@ -1939,7 +1925,30 @@ option:hover {
   border-radius: 0.25rem;
 }
 
-/* Specific Embeds Styles */
+.prose hr{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
+.prose a{
+  --tw-text-opacity: 1;
+  color: rgb(139 92 246 / var(--tw-text-opacity));
+}
+
+.prose a:hover{
+  text-decoration-line: underline;
+}
+
+.prose sup{
+  --tw-text-opacity: 1;
+  color: rgb(147 197 253 / var(--tw-text-opacity));
+}
+
+.prose del{
+  text-decoration-line: line-through;
+}
 
 .prose .youtube,
 .prose .twitter-tweet,
@@ -2013,6 +2022,10 @@ option:hover {
 
   .sm\:mt-6{
     margin-top: 1.5rem;
+  }
+
+  .sm\:mt-16{
+    margin-top: 4rem;
   }
 
   .sm\:block{

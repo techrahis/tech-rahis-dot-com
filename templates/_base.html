@@ -19,7 +19,9 @@
     {% endcompress %}
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="icon" href="{% static 'im  ages/favicon.ico' %}" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" />
   </head>
   <body class="bg-gray-950">
     {% include "components/navbar.html" %}
@@ -30,4 +32,12 @@
     </div>
     {% include "components/footer.html" %}
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    });
+  </script>
 </html>

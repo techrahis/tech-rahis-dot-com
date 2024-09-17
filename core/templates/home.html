@@ -29,22 +29,22 @@
       </ul>
     </div>
     <div class="mt-14 mb-8 flex justify-between">
-      <h1 class="text-2xl font-semibold font-montserrat">Featured projects</h1>
-      <a href="{% url 'projects' %}">
+      <h1 class="text-2xl font-semibold font-montserrat">Featured works</h1>
+      <a href="{% url 'portfolios' %}">
         <button class="bg-violet-500 hover:bg-purple-600 border-2 border-white border-opacity-20 shadow-lg text-gray-950 font-bold py-1 px-2 sm:py-2 sm:px-4 rounded font-montserrat">
           View all
         </button>
       </a>
     </div>
-    {% for project in projects %}
-      <a href="projects/{{ project.slug }}">
+    {% for portfolio in portfolios %}
+      <a href="portfolio/{{ portfolio.slug }}">
         <div class="flex gap-4 mb-6">
-          <img src="{{ project.thumbnail.url }}"
-               alt="{{ project.title }}"
+          <img src="{{ portfolio.thumbnail.url }}"
+               alt="{{ portfolio.title }}"
                class="w-1/6 md:w-1/12 rounded-md object-contain" />
           <div>
-            <h3 class="text-xl font-semibold text-gray-200 font-montserrat">{{ project.title }}</h3>
-            <p class="text-sm">{{ project.short_description|truncatechars:60 }}</p>
+            <h3 class="text-xl font-semibold text-gray-200 font-montserrat">{{ portfolio.title }}</h3>
+            <p class="text-sm">{{ portfolio.short_description|truncatechars:60 }}</p>
           </div>
         </div>
       </a>

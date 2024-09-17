@@ -1,18 +1,19 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Project
+from .models import Portfolio
 import markdown
-def projects(request):
-    projects = Project.objects.all()    
-    for project in projects:
-        project.long_description = markdown.markdown(project.long_description, extensions=['extra'])
-        project.technologies_list = project.technologies.split(',')
-    return render(request, 'projects.html', {'projects': projects})
 
-def project_detail(request, slug):
-    project = get_object_or_404(Project, slug=slug)
-    project.long_description = markdown.markdown(project.long_description, extensions=['extra'])
-    project.technologies_list = project.technologies.split(',')
-    return render(request, 'project_detail.html', {'project': project})
+def portfolios(request):
+    portfolios = Portfolio.objects.all()    
+    for portfolio in portfolios:
+        portfolios.long_description = markdown.markdown(portfolio.long_description, extensions=['extra'])
+        portfolios.technologies_list = portfolio.technologies.split(',')
+    return render(request, 'portfolio.html', {'portfolios': portfolios})
+
+def portfolio_detail(request, slug):
+    portfolio = get_object_or_404(Portfolio, slug=slug)
+    portfolio.long_description = markdown.markdown(portfolio.long_description, extensions=['extra'])
+    portfolio.technologies_list = portfolio.technologies.split(',')
+    return render(request, 'portfolio_detail.html', {'portfolios': portfolio})
 
 
 

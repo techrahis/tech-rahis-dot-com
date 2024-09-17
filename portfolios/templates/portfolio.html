@@ -1,27 +1,27 @@
 {% extends "_base.html" %}
-{% block title %}Projects{% endblock %}
+{% block title %}Portfolios{% endblock %}
 {% block content %}
-    <div class="text-white mt-16 sm:mt-14">
-        <h1 class="font-montserrat text-2xl font-bold mb-4">Projects</h1>
+    <div class="text-white mt-4 md:mt-16">
+        <h1 class="font-montserrat text-2xl font-bold mb-4">Portfolios</h1>
         <p class="mb-10">
-            I've been making various types of projects; some of them were basic and some of them were complicated. So far, I've made 10+ projects.
+            I've been working on a variety of projects over the years. Here are some of the projects I've worked on. Click on a project to learn more about it.
         </p>
     </div>
     <div class="space-y-8 text-white mb-10">
-        {% for project in projects %}
-            <a href="{% url 'project_detail' project.slug %}">
+        {% for portfolio in portfolios %}
+            <a href="{% url 'portfolio_detail' portfolio.slug %}">
                 <div class="flex flex-col bg-slate-900 rounded-md md:flex-row items-center mb-8 hover:bg-purple-600">
-                    <img src="{{ project.thumbnail.url }}"
-                         alt="{{ project.title }}"
+                    <img src="{{ portfolio.thumbnail.url }}"
+                         alt="{{ portfolio.title }}"
                          class="w-full md:w-1/4 h-56 rounded-tl-md rounded-tr-md rounded-bl-none md:rounded-tr-none md:rounded-bl-md object-cover mb-4 md:mb-0">
                     <div class="mt-4 md:mt-6 mb-2 mx-2 md:ml-6">
                         <h3 class="text-2xl font-montserrat font-semibold mb-4 flex justify-between mr-2 items-center">
-                            {{ project.title }}<i class="fa-solid fa-arrow-right"></i>
+                            {{ portfolio.title }}<i class="fa-solid fa-arrow-right"></i>
                         </h3>
-                        <p class="text-lg font-bold text-gray-200 mb-2">{{ project.date|date:"F d, Y" }}</p>
-                        <p class="text-gray-200 mb-6">{{ project.short_description|truncatechars:135 }}</p>
+                        <p class="text-lg font-bold text-gray-200 mb-2">{{ portfolio.date|date:"F d, Y" }}</p>
+                        <p class="text-gray-200 mb-6">{{ portfolio.short_description|truncatechars:135 }}</p>
                         <div class="flex flex-wrap">
-                            {% for technology in project.technologies_list %}
+                            {% for technology in portfolio.technologies_list %}
                                 <span class="bg-violet-500 text-gray-50 text-xs font-bold font-inter py-1 px-2 rounded-full mr-2 mb-2">{{ technology }}</span>
                             {% endfor %}
                         </div>

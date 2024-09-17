@@ -22,7 +22,7 @@ COPY --from=builder /app/venv venv
 COPY blogs blogs
 COPY core core
 COPY helpers helpers
-COPY projects projects
+COPY portfolios portfolios
 COPY static static
 COPY tech_rahis tech_rahis
 COPY templates templates

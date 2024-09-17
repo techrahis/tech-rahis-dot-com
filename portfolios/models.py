@@ -8,14 +8,14 @@ from datetime import date
 def unique_filename(instance, filename):
     ext = filename.split('.')[-1]
     filename = f"{uuid.uuid4()}.{ext}"
-    return os.path.join('project_thumbnails/', filename)
+    return os.path.join('portfolio_thumbnails/', filename)
 
 def unique_cover_filename(instance, filename):
     ext = filename.split('.')[-1]
     filename = f"{uuid.uuid4()}.{ext}"
-    return os.path.join('project_covers/', filename)
+    return os.path.join('portfolio_covers/', filename)
 
-class Project(models.Model):
+class Portfolio(models.Model):
     title = models.CharField(max_length=200, unique=True, null=False, blank=False, verbose_name=_("Title"))
     thumbnail = models.ImageField(upload_to=unique_filename, verbose_name=_("Thumbnail"))
     cover_image = models.ImageField(upload_to=unique_cover_filename, verbose_name=_("Cover Image"))
@@ -37,7 +37,7 @@ class Project(models.Model):
             self.slug = slugify(self.title)
             original_slug = self.slug
             for x in range(1, 1000):
-                if not Project.objects.filter(slug=self.slug).exists():
+                if not Portfolio.objects.filter(slug=self.slug).exists():
                     break
                 self.slug = f"{original_slug}-{x}"
-        super(Project, self).save(*args, **kwargs)
+        super(Portfolio, self).save(*args, **kwargs)
