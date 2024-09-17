@@ -13,7 +13,7 @@ def portfolio_detail(request, slug):
     portfolio = get_object_or_404(Portfolio, slug=slug)
     portfolio.long_description = markdown.markdown(portfolio.long_description, extensions=['extra'])
     portfolio.technologies_list = portfolio.technologies.split(',')
-    return render(request, 'portfolio_detail.html', {'portfolios': portfolio})
+    return render(request, 'portfolio_detail.html', {'portfolio': portfolio})
 
 
 

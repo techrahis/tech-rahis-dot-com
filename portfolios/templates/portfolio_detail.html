@@ -1,32 +1,32 @@
 {% extends "_base.html" %}
-{% block title %}{{ project.title }}{% endblock %}
-{% block meta_description %}{{ project.short_description }}{% endblock %}
+{% block title %}{{ portfolio.title }}{% endblock %}
+{% block meta_description %}{{ portfolio.short_description }}{% endblock %}
 {% block content %}
     <div class="text-white mt-16 sm:mt-14">
         <h1 class="font-montserrat text-2xl md:text-5xl font-bold mb-8 text-center">{{ project.title }}</h1>
-        <img src="{{ project.cover_image.url }}"
-             alt="{{ project.title }}"
+        <img src="{{ portfolio.cover_image.url }}"
+             alt="{{ portfolio.title }}"
              class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8">
-        <h3 class="text-gray-100 text-xl font-semibold mb-4">Published on {{ project.date|date:"F d, Y" }}</h3>
-        <p class="text-gray-200 mb-4">{{ project.short_description }}</p>
+        <h3 class="text-gray-100 text-xl font-semibold mb-4">Published on {{ portfolio.date|date:"F d, Y" }}</h3>
+        <p class="text-gray-200 mb-4">{{ portfolio.short_description }}</p>
         <h3 class="text-gray-100 text-2xl font-semibold mb-4">Crafted With</h3>
         <div class="flex flex-wrap">
-            {% for technology in project.technologies_list %}
+            {% for technology in portfolio.technologies_list %}
                 <span class="bg-purple-600 text-gray-200 text-xs font-bold font-inter py-1 px-2 rounded-full mr-2 mb-2">{{ technology }}</span>
             {% endfor %}
         </div>
-        {% if project.live_demo_url %}
+        {% if portfolio.live_demo_url %}
             <h3 class="text-gray-100 text-2xl font-semibold mt-4">Live View</h3>
-            <a href="{{ project.live_demo_url }}"
+            <a href="{{ portfolio.live_demo_url }}"
                class="text-purple-600 hover:underline"
-               target="_blank">{{ project.live_demo_url }}</a>
+               target="_blank">{{ portfolio.live_demo_url }}</a>
         {% endif %}
-        {% if project.source_code_url %}
+        {% if portfolio.source_code_url %}
             <h3 class="text-gray-100 text-2xl font-semibold mt-4">Source Code</h3>
-            <a href="{{ project.source_code_url }}"
+            <a href="{{ portfolio.source_code_url }}"
                class="text-purple-600 hover:underline"
-               target="_blank">{{ project.source_code_url }}</a>
+               target="_blank">{{ portfolio.source_code_url }}</a>
         {% endif %}
-        <div class="prose w-full max-w-none mt-6 mb-8">{{ project.long_description|safe }}</div>
+        <div class="prose w-full max-w-none mt-6 mb-8">{{ portfolio.long_description|safe }}</div>
     </div>
 {% endblock %}
