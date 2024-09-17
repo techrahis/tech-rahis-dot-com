@@ -3,30 +3,56 @@
 {% block meta_description %}{{ portfolio.short_description }}{% endblock %}
 {% block content %}
     <div class="text-white mt-16 sm:mt-14">
-        <h1 class="font-montserrat text-2xl md:text-5xl font-bold mb-8 text-center">{{ project.title }}</h1>
+        <!-- Title -->
+        <h1 class="font-montserrat text-2xl md:text-5xl font-bold mb-8 text-center">{{ portfolio.title }}</h1>
+        <!-- Cover Image -->
         <img src="{{ portfolio.cover_image.url }}"
              alt="{{ portfolio.title }}"
              class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8">
+        <!-- Published Date -->
         <h3 class="text-gray-100 text-xl font-semibold mb-4">Published on {{ portfolio.date|date:"F d, Y" }}</h3>
+        <!-- Short Description -->
         <p class="text-gray-200 mb-4">{{ portfolio.short_description }}</p>
+        <!-- Crafted With (Technologies Used) -->
         <h3 class="text-gray-100 text-2xl font-semibold mb-4">Crafted With</h3>
         <div class="flex flex-wrap">
             {% for technology in portfolio.technologies_list %}
                 <span class="bg-purple-600 text-gray-200 text-xs font-bold font-inter py-1 px-2 rounded-full mr-2 mb-2">{{ technology }}</span>
             {% endfor %}
         </div>
+        <!-- Live Demo URL -->
         {% if portfolio.live_demo_url %}
             <h3 class="text-gray-100 text-2xl font-semibold mt-4">Live View</h3>
             <a href="{{ portfolio.live_demo_url }}"
                class="text-purple-600 hover:underline"
                target="_blank">{{ portfolio.live_demo_url }}</a>
         {% endif %}
+        <!-- Source Code URL -->
         {% if portfolio.source_code_url %}
             <h3 class="text-gray-100 text-2xl font-semibold mt-4">Source Code</h3>
             <a href="{{ portfolio.source_code_url }}"
                class="text-purple-600 hover:underline"
                target="_blank">{{ portfolio.source_code_url }}</a>
         {% endif %}
+        <!-- Long Description -->
         <div class="prose w-full max-w-none mt-6 mb-8">{{ portfolio.long_description|safe }}</div>
+        <!-- Client Name (if available) -->
+        {% if portfolio.client_name %}<h3 class="text-gray-100 text-lg font-semibold mb-4">Testimonial</h3>{% endif %}
+        <!-- Client Testimonial (if available) -->
+        {% if portfolio.client_testimonial %}
+            <blockquote class="text-gray-300 italic mb-4 border-l-4 pl-4">
+                {{ portfolio.client_testimonial }} <span class="text-purple-600">- {{ portfolio.client_name }}</span>
+            </blockquote>
+        {% endif %}
+        <!-- Category (if available) -->
+        {% if portfolio.category %}
+            <h3 class="text-gray-100 font-semibold mb-4">Category: {{ portfolio.get_category_display }}</h3>
+        {% endif %}
+        <!-- Project Duration -->
+        {% if portfolio.duration %}
+            <h3 class="text-gray-100 font-semibold mb-4">Duration: {{ portfolio.duration }}</h3>
+        {% endif %}
+        <!-- Project Status -->
+        <h3 class="text-gray-100 font-semibold mb-4">Status: {{ portfolio.get_status_display }}</h3>
     </div>
 {% endblock %}

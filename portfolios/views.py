@@ -3,10 +3,9 @@ from .models import Portfolio
 import markdown
 
 def portfolios(request):
-    portfolios = Portfolio.objects.all()    
+    portfolios = Portfolio.objects.only('id', 'title', 'date', 'short_description', 'thumbnail', 'slug').order_by('-date')
     for portfolio in portfolios:
-        portfolios.long_description = markdown.markdown(portfolio.long_description, extensions=['extra'])
-        portfolios.technologies_list = portfolio.technologies.split(',')
+        portfolio.technologies_list = portfolio.technologies.split(',')
     return render(request, 'portfolio.html', {'portfolios': portfolios})
 
 def portfolio_detail(request, slug):
