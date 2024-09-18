@@ -1,3 +1,6 @@
-from django.contrib import admin
+from .models import *
+from core.admin import techrahis_admin
 
-# Register your models here.
+techrahis_admin.register(BlogCategory)
+techrahis_admin.register(Tag)
+techrahis_admin.register(Blog)
