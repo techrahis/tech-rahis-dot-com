@@ -1,31 +1,100 @@
 {% extends "_base.html" %}
 {% block title %}Blogs{% endblock %}
+{% block meta_description %}
+    I've been writing online since 2020, mostly about web development and tech careers. Here are some of the blogs I've written. Click on a blog to read more about it.
+{% endblock %}
 {% block content %}
-    <h1>Blog List</h1>
-    {% if query %}<p>Search results for "{{ query }}":</p>{% endif %}
-    {% if category %}<p>Category: {{ category.name }}</p>{% endif %}
-    {% if tag %}<p>Tag: {{ tag.name }}</p>{% endif %}
-    <ul>
-        {% for blog in page_obj %}
-            <li>
-                <h2>
-                    <a href="">{{ blog.title }}</a>
-                </h2>
-                <p>{{ blog.short_description }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-    <div class="pagination">
-        <span class="step-links">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+    <div class="text-white mt-4 md:mt-16">
+        <h1 class="font-montserrat text-2xl font-bold mb-4">Blogs</h1>
+        <p class="mb-4">
+            I've been writing online since 2020, mostly about web development and tech careers. Here are some of the blogs I've written. Click on a blog to read more about it.
+        </p>
+        <!-- Search Form -->
+        <h3 class="mb-4 font-inter font-semibold">Search</h3>
+        <form class="flex items-center space-x-2 mb-6" method="GET">
+            <div class="relative w-full">
+                <input type="text"
+                       name="q"
+                       value="{{ request.GET.q }}"
+                       placeholder="Search blogs"
+                       class="w-full bg-slate-900 text-gray-50 font-inter py-2 px-4 border-2 rounded-full pr-10">
+                <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor"
+                     width="20"
+                     height="20">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17a6 6 0 100-12 6 6 0 000 12z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35" />
+                </svg>
+            </div>
+            <button type="submit"
+                    class="bg-purple-600 hover:bg-purple-700 transition-colors text-gray-50 font-inter py-2 px-4 border-2 rounded-full">
+                Search
+            </button>
+        </form>
+        <!-- Categories -->
+        <h3 class="mb-4 font-inter font-semibold">Categories</h3>
+        <div class="flex flex-wrap gap-2 mb-6">
+            <a href="?{% if request.GET.tag %}tag={{ request.GET.tag }}&{% endif %}category="
+               class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if not request.GET.category %}bg-purple-600{% endif %}">All</a>
+            {% for category in categories %}
+                <a href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}{% if request.GET.tag %}tag={{ request.GET.tag }}&{% endif %}category={{ category.slug }}"
+                   class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if request.GET.category == category.slug %}bg-purple-600{% endif %}">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </div>
+        <!-- Tags -->
+        <h3 class="mb-4 font-inter font-semibold">Tags</h3>
+        <div class="flex flex-wrap gap-2 mb-10">
+            <a href="?{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}tag="
+               class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if not request.GET.tag %}bg-purple-600{% endif %}">All</a>
+            {% for tag in tags %}
+                <a href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}tag={{ tag.slug }}"
+                   class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if request.GET.tag == tag.slug %}bg-purple-600{% endif %}">
+                    {{ tag.name }}
+                </a>
+            {% endfor %}
+        </div>
+        <!-- Blog Card Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% if page_obj %}
+                {% for blog in page_obj %}
+                    <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
+                        <a href="{% url 'blog_detail' blog.slug %}">
+                            <img src="{{ blog.thumbnail.url }}"
+                                 alt="{{ blog.title }}"
+                                 class="w-full h-48 object-cover rounded-md mb-4">
+                            <h2 class="text-lg text-gray-200 font-bold mb-2 font-inter">{{ blog.date|date:"F d, Y" }}</h2>
+                            <h2 class="text-xl font-bold mb-2 font-montserrat">{{ blog.title }}</h2>
+                            <p class="text-gray-400 mb-4">{{ blog.short_description|truncatewords:20 }}</p>
+                        </a>
+                        <div class="flex flex-wrap gap-1">
+                            {% for tag in blog.tags.all %}
+                                <span class="bg-purple-600 text-xs py-1 px-2 rounded-full">{{ tag.name }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No blogs found.</p>
             {% endif %}
-            <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
+        </div>
+        <!-- Pagination -->
+        <div class="mt-16">
+            <span class="step-links font-inter text-lg font-semibold">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}">previous</a>
+                {% endif %}
+                <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
     </div>
 {% endblock %}

@@ -127,6 +127,11 @@ option:hover {
   @apply line-through;
 }
 
+.prose strong {
+  @apply font-bold;
+  @apply text-white;
+}
+
 .prose .youtube,
 .prose .twitter-tweet,
 .prose .github-repo {
