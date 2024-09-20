@@ -8,24 +8,25 @@ def blog_list(request):
     category_slug = request.GET.get('category')
     tag_slug = request.GET.get('tag')
     
-    blogs = Blog.objects.all()
+    # Always sort by date in descending order
+    blogs = Blog.objects.all().order_by('-date')
 
     # Filter by query (search)
     if query:
-        blogs = blogs.filter(title__icontains=query).only('id', 'title', 'short_description', 'thumbnail', 'slug').order_by('-date')
+        blogs = blogs.filter(title__icontains=query).only('id', 'title', 'short_description', 'thumbnail', 'slug')
 
     # Filter by category
     if category_slug:
         category = get_object_or_404(BlogCategory, slug=category_slug)
-        blogs = blogs.filter(category=category).only('id', 'title', 'short_description', 'thumbnail', 'slug').order_by('-date')
+        blogs = blogs.filter(category=category).only('id', 'title', 'short_description', 'thumbnail', 'slug')
 
     # Filter by tag
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
-        blogs = blogs.filter(tags=tag).only('id', 'title', 'short_description', 'thumbnail', 'slug').order_by('-date')
+        blogs = blogs.filter(tags=tag).only('id', 'title', 'short_description', 'thumbnail', 'slug')
     
     # Pagination
-    paginator = Paginator(blogs, 5)  # Show 10 blogs per page
+    paginator = Paginator(blogs, 2)  # Show 5 blogs per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     

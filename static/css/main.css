@@ -1185,6 +1185,10 @@ video {
   margin-top: 10vh;
 }
 
+.mt-20{
+  margin-top: 5rem;
+}
+
 .block{
   display: block;
 }
@@ -1276,6 +1280,10 @@ video {
 
 .max-w-none{
   max-width: none;
+}
+
+.flex-1{
+  flex: 1 1 0%;
 }
 
 .flex-grow{
@@ -1390,6 +1398,14 @@ video {
   gap: 1.5rem;
 }
 
+.gap-10{
+  gap: 2.5rem;
+}
+
+.gap-8{
+  gap: 2rem;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -1418,6 +1434,18 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.space-x-6 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-10 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .overflow-hidden{
@@ -1628,6 +1656,10 @@ video {
   text-align: center;
 }
 
+.text-right{
+  text-align: right;
+}
+
 .font-inter{
   font-family: Inter, sans-serif;
 }
@@ -1786,6 +1818,11 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-blue-500{
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 .text-opacity-70{
@@ -1975,15 +2012,22 @@ option:hover {
 .prose video{
   margin-bottom: 1rem;
   height: auto;
-  max-width: 100%;
+  min-width: 100%;
   border-radius: 0.25rem;
 }
 
 .prose iframe{
   margin-bottom: 1rem;
+  margin-top: 1rem;
   height: auto;
-  max-width: 100%;
+  min-width: 100%;
   border-radius: 0.25rem;
+}
+
+@media (min-width: 768px){
+  .prose iframe{
+    height: 24rem;
+  }
 }
 
 .prose hr{
@@ -2021,7 +2065,7 @@ option:hover {
 .prose .twitter-tweet,
 .prose .github-repo{
   margin-bottom: 1rem;
-  max-width: 100%;
+  min-width: 100%;
 }
 
 .cta_button {
@@ -2121,6 +2165,16 @@ option:hover {
 .hover\:text-purple-600:hover{
   --tw-text-opacity: 1;
   color: rgb(147 51 234 / var(--tw-text-opacity));
+}
+
+.hover\:text-blue-700:hover{
+  --tw-text-opacity: 1;
+  color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
+.hover\:text-violet-600:hover{
+  --tw-text-opacity: 1;
+  color: rgb(124 58 237 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover{

@@ -83,18 +83,28 @@
             {% endif %}
         </div>
         <!-- Pagination -->
-        <div class="mt-16">
-            <span class="step-links font-inter text-lg font-semibold">
-                {% if page_obj.has_previous %}
-                    <a href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}">previous</a>
-                {% endif %}
-                <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}">last &raquo;</a>
-                {% endif %}
-            </span>
+        <div class="mt-20">
+            <div class="flex justify-center space-x-10 items-center font-inter text-sm font-semibold">
+                <div>
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}"
+                           class="mr-2 text-violet-500 hover:text-purple-600">&laquo; First</a>
+                        <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}"
+                           class="text-violet-500 hover:text-purple-600">Previous</a>
+                    {% endif %}
+                </div>
+                <div>
+                    <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+                </div>
+                <div>
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}"
+                           class="mr-2 text-violet-500 hover:text-purple-600">Next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}"
+                           class="text-violet-500 hover:text-purple-600">Last &raquo;</a>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

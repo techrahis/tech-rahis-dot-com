@@ -104,11 +104,11 @@ option:hover {
 }
 
 .prose video {
-  @apply max-w-full h-auto rounded mb-4;
+  @apply min-w-full h-auto rounded mb-4;
 }
 
 .prose iframe {
-  @apply max-w-full h-auto rounded mb-4;
+  @apply min-w-full h-auto rounded mb-4 md:h-96 mt-4;
 }
 
 .prose hr {
@@ -135,7 +135,7 @@ option:hover {
 .prose .youtube,
 .prose .twitter-tweet,
 .prose .github-repo {
-  @apply max-w-full mb-4;
+  @apply min-w-full mb-4;
 }
 
 .cta_button {
