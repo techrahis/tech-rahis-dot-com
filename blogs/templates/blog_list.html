@@ -5,12 +5,12 @@
 {% endblock %}
 {% block content %}
     <div class="text-white mt-4 md:mt-16">
-        <h1 class="font-montserrat text-2xl font-bold mb-4">Blogs</h1>
-        <p class="mb-4">
+        <h1 class="font-montserrat text-3xl font-bold mb-4 text-purple-600">📝 Blogs</h1>
+        <p class="mb-4 text-gray-300">
             I've been writing online since 2020, mostly about web development and tech careers. Here are some of the blogs I've written. Click on a blog to read more about it.
         </p>
         <!-- Search Form -->
-        <h3 class="mb-4 font-inter font-semibold">Search</h3>
+        <h3 class="mb-4 font-inter font-semibold text-teal-500">🔍 Search</h3>
         <form class="flex items-center space-x-2 mb-6" method="GET">
             <div class="relative w-full">
                 <input type="text"
@@ -30,30 +30,30 @@
                 </svg>
             </div>
             <button type="submit"
-                    class="bg-purple-600 hover:bg-purple-700 transition-colors text-gray-50 font-inter py-2 px-4 border-2 rounded-full">
+                    class="bg-teal-500 hover:bg-teal-600 transition-colors text-gray-50 font-inter py-2 px-4 border-2 rounded-full">
                 Search
             </button>
         </form>
         <!-- Categories -->
-        <h3 class="mb-4 font-inter font-semibold">Categories</h3>
+        <h3 class="mb-4 font-inter font-semibold text-pink-500">📂 Categories</h3>
         <div class="flex flex-wrap gap-2 mb-6">
             <a href="?{% if request.GET.tag %}tag={{ request.GET.tag }}&{% endif %}category="
-               class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if not request.GET.category %}bg-purple-600{% endif %}">All</a>
+               class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if not request.GET.category %}bg-pink-600{% endif %}">All</a>
             {% for category in categories %}
                 <a href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}{% if request.GET.tag %}tag={{ request.GET.tag }}&{% endif %}category={{ category.slug }}"
-                   class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if request.GET.category == category.slug %}bg-purple-600{% endif %}">
+                   class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if request.GET.category == category.slug %}bg-pink-600{% endif %}">
                     {{ category.name }}
                 </a>
             {% endfor %}
         </div>
         <!-- Tags -->
-        <h3 class="mb-4 font-inter font-semibold">Tags</h3>
+        <h3 class="mb-4 font-inter font-semibold text-blue-500">🏷️ Tags</h3>
         <div class="flex flex-wrap gap-2 mb-10">
             <a href="?{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}tag="
-               class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if not request.GET.tag %}bg-purple-600{% endif %}">All</a>
+               class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if not request.GET.tag %}bg-blue-600{% endif %}">All</a>
             {% for tag in tags %}
                 <a href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&{% endif %}tag={{ tag.slug }}"
-                   class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if request.GET.tag == tag.slug %}bg-purple-600{% endif %}">
+                   class="text-xs font-bold py-1 px-2 border-2 rounded-full {% if request.GET.tag == tag.slug %}bg-blue-600{% endif %}">
                     {{ tag.name }}
                 </a>
             {% endfor %}
@@ -62,13 +62,13 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {% if page_obj %}
                 {% for blog in page_obj %}
-                    <div class="bg-slate-800 p-4 rounded-lg shadow-lg">
+                    <div class="bg-slate-800 p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
                         <a href="{% url 'blog_detail' blog.slug %}">
                             <img src="{{ blog.thumbnail.url }}"
                                  alt="{{ blog.title }}"
                                  class="w-full h-48 object-cover rounded-md mb-4">
                             <h2 class="text-lg text-gray-200 font-bold mb-2 font-inter">{{ blog.date|date:"F d, Y" }}</h2>
-                            <h2 class="text-xl font-bold mb-2 font-montserrat">{{ blog.title }}</h2>
+                            <h2 class="text-xl font-bold mb-2 font-montserrat blog-title">{{ blog.title }}</h2>
                             <p class="text-gray-400 mb-4">{{ blog.short_description|truncatewords:20 }}</p>
                         </a>
                         <div class="flex flex-wrap gap-1">
@@ -79,16 +79,16 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <p>No blogs found.</p>
+                <p>No blogs found. 😢</p>
             {% endif %}
         </div>
         <!-- Pagination -->
         <div class="mt-20">
-            <div class="flex justify-center space-x-10 items-center font-inter text-sm font-semibold">
+            <div class="flex justify-center space-x-10 items-center font-inter text-sm font-semibold text-gray-300">
                 <div>
                     {% if page_obj.has_previous %}
                         <a href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}"
-                           class="mr-2 text-violet-500 hover:text-purple-600">&laquo; First</a>
+                           class="mr-2 text-violet-500 hover:text-purple-600">« First</a>
                         <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}"
                            class="text-violet-500 hover:text-purple-600">Previous</a>
                     {% endif %}
@@ -101,10 +101,20 @@
                         <a href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}"
                            class="mr-2 text-violet-500 hover:text-purple-600">Next</a>
                         <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.tag %}&tag={{ request.GET.tag }}{% endif %}"
-                           class="text-violet-500 hover:text-purple-600">Last &raquo;</a>
+                           class="text-violet-500 hover:text-purple-600">Last »</a>
                     {% endif %}
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const titles = document.querySelectorAll('.blog-title');
+            const colors = ['rgb(217 70 239)', 'rgb(236 72 153)', 'rgb(168 85 247)', 'rgb(99 102 241)', 'rgb(52 211 153)', 'rgb(245 158 11)'];
+            titles.forEach(title => {
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                title.style.color = randomColor;
+            });
+        });
+    </script>
 {% endblock %}

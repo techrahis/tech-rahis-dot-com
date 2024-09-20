@@ -1,0 +1,78 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block title %}FAQ{% endblock %}
+{% block meta_description %}
+    Frequently Asked Questions (FAQ) about the web development, web design, digital marketing, and SEO services offered by Rajarshi Samaddar. Get all your questions answered here.
+{% endblock %}
+{% block content %}
+    <div class="text-white mt-4 md:mt-16">
+        <h1 class="font-montserrat text-3xl font-bold mb-4 text-violet-400">❓ Frequently Asked Questions</h1>
+        <p class="mb-10 font-opensans">
+            Below are some of the most frequently asked questions about my services. If you don't find the answer you're looking for, feel free to <a href="{% url 'contact' %}" class="text-pink-500 hover:underline">contact me</a> directly.
+        </p>
+    </div>
+    <div class="space-y-6">
+        <!-- Question 1 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-pink-500 mb-4">1. What services do you offer?</h2>
+            <p class="text-gray-200">I offer a variety of services to help businesses succeed online, including:</p>
+            <ul class="text-gray-300 list-disc list-inside mt-2">
+                <li>Web Development</li>
+                <li>Web Design</li>
+                <li>Digital Marketing</li>
+                <li>Search Engine Optimization (SEO)</li>
+            </ul>
+        </div>
+        <!-- Question 2 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-purple-500 mb-4">2. How much do your services cost?</h2>
+            <p class="text-gray-200">
+                The cost depends on the scope of the project. For example, a simple portfolio website starts at $399, but the price can vary based on additional features, integrations, and other customizations. Contact me for a custom quote.
+            </p>
+        </div>
+        <!-- Question 3 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-teal-500 mb-4">3. How long does it take to build a website?</h2>
+            <p class="text-gray-200">
+                The timeline depends on the complexity of the project. A basic website may take 1-2 weeks, while a more complex project, like an e-commerce site or a custom web app, could take 4-6 weeks or longer.
+            </p>
+        </div>
+        <!-- Question 4 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-green-500 mb-4">4. Do you offer website maintenance?</h2>
+            <p class="text-gray-200">
+                Yes, I offer ongoing website maintenance services, including updates, security checks, and performance monitoring to ensure your site remains fast and secure. You can opt for monthly or quarterly maintenance packages.
+            </p>
+        </div>
+        <!-- Question 5 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-pink-500 mb-4">5. Can you redesign my existing website?</h2>
+            <p class="text-gray-200">
+                Absolutely! I can help you revamp your current website to improve its design, performance, and user experience. Whether you're looking for a complete overhaul or just some minor updates, I've got you covered.
+            </p>
+        </div>
+        <!-- Question 6 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-purple-500 mb-4">6. What is SEO, and why do I need it?</h2>
+            <p class="text-gray-200">
+                SEO (Search Engine Optimization) is the process of improving your website's visibility on search engines like Google. With effective SEO strategies, your site can rank higher, attract more traffic, and generate more leads. It's crucial for long-term online success.
+            </p>
+        </div>
+        <!-- Question 7 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-teal-500 mb-4">7. Do you provide digital marketing services?</h2>
+            <p class="text-gray-200">
+                Yes, I offer digital marketing services including social media marketing, email marketing, content marketing, and pay-per-click (PPC) advertising. These services help you reach your target audience and grow your online presence.
+            </p>
+        </div>
+        <!-- Question 8 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-green-500 mb-4">8. How can I get started?</h2>
+            <p class="text-gray-200">
+                You can easily get started by booking a free consultation. Just head over to the <a href="{% url 'get_free_consultation' %}"
+    class="text-pink-500 hover:underline">consultation page</a> and pick a time that works best for you. We'll discuss your project and how I can help!
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
