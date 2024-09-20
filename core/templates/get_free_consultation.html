@@ -1,18 +1,21 @@
 {% extends "_base.html" %}
+{% load static %}
 {% block title %}Get Free 1:1 Consultation{% endblock %}
 {% block meta_description %}
     Build Your Online Presence with Expert Web Development — Get a Free 1:1 Consultation Today!
 {% endblock %}
 {% block content %}
     <div class="text-white mt-4 md:mt-16">
+        <!-- Header Section -->
         <h1 class="font-montserrat text-2xl font-bold mb-6">
             Build Your Online Presence with Expert Web Development — Get a Free 1:1 Consultation Today!
         </h1>
         <p class="mb-10 font-opensans">
             Get personalized advice on how to enhance your website, attract more customers, and grow your business online. This free session will provide you with tailored recommendations specific to your business goals.
         </p>
+        <!-- Benefits Section -->
         <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">
-            List the specific benefits your web development service offers, such as:
+            Discover the key benefits of working with me:
         </h3>
         <ul class="mb-10">
             <li class="mb-2 flex items-center gap-4">
@@ -22,20 +25,109 @@
                 <i class="fa-solid fa-circle-check text-green-500"></i>Mobile-responsive design
             </li>
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500"></i>SEO optimization
+                <i class="fa-solid fa-circle-check text-green-500"></i>SEO optimization to increase online visibility
             </li>
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500"></i>E-commerce solutions
+                <i class="fa-solid fa-circle-check text-green-500"></i>E-commerce solutions for seamless online sales
             </li>
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500"></i>Ongoing maintenance and support
+                <i class="fa-solid fa-circle-check text-green-500"></i>Ongoing maintenance and support to keep your website up-to-date
             </li>
             <li class="mb-2 flex items-center gap-4">
                 <i class="fa-solid fa-circle-check text-green-500"></i>Affordable pricing starting at $399
             </li>
         </ul>
+        <!-- Why Work With Me Section -->
         <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">
-            Are you missing out on online bookings? We specialize in building modern websites that convert visitors into customers.
+            Struggling to convert online visitors into customers? Here's how I can help:
         </h3>
+        <p class="mb-6 font-opensans">
+            I specialize in creating modern, user-friendly websites that are designed to turn your website visitors into paying customers. From sleek booking systems to high-converting landing pages, I provide solutions tailored to your business.
+        </p>
+        <!-- Testimonials Section -->
+        <div class="bg-slate-900 p-6 rounded-lg">
+            <p class="text-gray-400 italic mb-4">
+                "Working with Rajarshi has completely transformed my business. My website not only looks amazing, but I’ve seen a significant increase in inquiries!"
+            </p>
+            <p class="text-purple-600 font-bold">— Emma Brown, Tour Guide</p>
+        </div>
+        <!-- Action Section -->
+        <div class="text-center mt-14">
+            <h2 class="font-montserrat text-2xl font-bold mb-4">Ready to Get Started? Book Your Free Consultation 🚀</h2>
+            <p class="mb-6 font-opensans">
+                Schedule your free 1:1 consultation today and take the first step towards building a website that works for you.
+            </p>
+        </div>
+        <!-- Booking Form Section -->
+        <div class="bg-slate-900 bg-opacity-50 backdrop-blur-md px-6 py-10 rounded-lg shadow-lg">
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-gray-300 mb-2">Full Name*</label>
+                        <input type="text"
+                               name="name"
+                               id="name"
+                               required
+                               class="w-full p-2 rounded-md bg-slate-800 text-gray-200">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-300 mb-2">Email Address*</label>
+                        <input type="email"
+                               name="email"
+                               id="email"
+                               required
+                               class="w-full p-2 rounded-md bg-slate-800 text-gray-200">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-300 mb-2">Phone Number*</label>
+                        <input type="tel"
+                               name="phone"
+                               id="phone"
+                               required
+                               class="w-full p-2 rounded-md bg-slate-800 text-gray-200">
+                    </div>
+                    <div>
+                        <label for="website" class="block text-gray-300 mb-2">Website</label>
+                        <input type="url"
+                               name="website"
+                               id="website"
+                               required
+                               class="w-full p-2 rounded-md bg-slate-800 text-gray-200">
+                    </div>
+                    <div>
+                        <label for="preferred_date" class="block text-gray-300 mb-2">Preferred Date*</label>
+                        <input type="date"
+                               name="preferred_date"
+                               id="preferred_date"
+                               required
+                               class="w-full p-2 rounded-md bg-slate-800 text-gray-200">
+                    </div>
+                    <div>
+                        <label for="preferred_time" class="block text-gray-300 mb-2">Preferred Time*</label>
+                        <input type="time"
+                               name="preferred_time"
+                               id="preferred_time"
+                               required
+                               class="w-full p-2 rounded-md bg-slate-800 text-gray-200">
+                    </div>
+                </div>
+                <div class="text-center pt-4">
+                    <button type="submit" class="booking_btn">⚡ Book Consultation</button>
+                </div>
+                <!-- Privacy Note -->
+                <p class="text-gray-400 text-xs mt-6 text-center">
+                    🔒 Your information will only be used to respond to your inquiry. We value your privacy and will not share your details with any third parties.
+                </p>
+            </form>
+        </div>
+        <!-- Trust Section (Optional) -->
+        <div class="mt-14 text-center">
+            <div class="flex justify-center items-center gap-6">
+                <img src="{% static 'image/google-ads.png' %}" alt="Logo 1" class="h-10">
+                <img src="{% static 'image/meta.png' %}" alt="Logo 3" class="h-10">
+                <img src="{% static 'image/microsoft.png' %}" alt="Logo 2" class="h-10">
+            </div>
+        </div>
     </div>
 {% endblock %}

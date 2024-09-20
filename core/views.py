@@ -3,7 +3,7 @@ from .forms import *
 from portfolios.models import Portfolio
 
 def home(request):
-    portfolios = Portfolio.objects.only('id', 'title', 'date', 'short_description', 'thumbnail', 'slug').order_by('-date')
+    portfolios = Portfolio.objects.filter(featured=True).only('id', 'title', 'date', 'short_description', 'thumbnail', 'slug').order_by('-date')
     return render(request, 'home.html', {'portfolios': portfolios})
 
 def about(request):

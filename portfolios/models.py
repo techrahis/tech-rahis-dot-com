@@ -20,6 +20,7 @@ class Portfolio(models.Model):
     thumbnail = models.ImageField(upload_to=unique_filename, verbose_name=_("Thumbnail"))
     cover_image = models.ImageField(upload_to=unique_cover_filename, verbose_name=_("Cover Image"))
     slug = models.SlugField(unique=True, null=False, blank=False, verbose_name=_("Slug"))
+    featured = models.BooleanField(default=False, verbose_name=_("Featured"))
     category = models.CharField(max_length=100, choices=[('design', 'Design'), ('development', 'Web Development'), ('app', 'Mobile App'), ('seo', 'SEO')], verbose_name=_("Category"))
     short_description = models.TextField(help_text=_("Short description for listing page"), verbose_name=_("Short Description"))
     long_description = models.TextField(help_text=_("Long description in markdown format"), verbose_name=_("Long Description"))

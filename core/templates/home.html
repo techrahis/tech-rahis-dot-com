@@ -2,17 +2,17 @@
 {% load static %}
 {% block title %}Home{% endblock %}
 {% block meta_description %}
-  We create stunning, user-friendly websites tailored to your business needs. From freelancers to small businesses, we offer personalized web development services to help you succeed online.
+  I create stunning, user-friendly websites tailored to your business needs. From freelancers to small businesses, I offer personalized web development services to help you succeed online.
 {% endblock %}
 {% block content %}
   <div class="text-white">
     <!-- Hero Section -->
-    <section class="hero bg-cover bg-center h-screen flex items-center justify-center text-center p-4"
+    <section class="mt-10 rounded-xl bg-cover bg-center h-[84vh] flex items-center justify-center text-center p-4"
              style="background-image: url({% static 'image/home-cover.jpg' %})">
       <div class="bg-opacity-70 bg-black p-8 rounded-lg">
         <h1 class="text-4xl md:text-6xl font-bold mb-4">Building Stunning Websites for Your Business 🚀</h1>
         <p class="text-lg md:text-xl text-gray-300 mb-6">
-          Whether you're a freelancer, tour guide, or local business owner, we create websites that get results.
+          Whether you're a freelancer, tour guide, or local business owner, I create websites that get results.
         </p>
         <a href="{% url 'get_free_consultation' %}">
           <button class="home_cta_btn">
@@ -22,41 +22,41 @@
       </div>
     </section>
     <!-- Services Section -->
-    <section class="services py-16 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">🛠️ Services</h2>
-      <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-10">
-        We specialize in building modern, responsive websites tailored to the unique needs of your business.
+    <section class="mt-10 rounded-xl py-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">⚙️ Services</h2>
+      <p class="text-gray-300 text-lg max-w-3xl px-4 mx-auto mb-10">
+        I offer a range of services to help businesses grow online, from building high-quality websites to enhancing your online visibility. Explore my services below to see how I can help.
       </p>
-      <div class="flex flex-wrap justify-center gap-6">
-        <div class="bg-slate-800 p-6 rounded-lg w-80">
-          <h3 class="text-2xl font-bold mb-4">💼 Portfolio Websites</h3>
-          <p class="text-gray-400 mb-4">Custom websites for freelancers like doctors, photographers, and creatives.</p>
-          <a href="{% url 'services' %}" class="text-amber-500 hover:underline">Learn More</a>
+      <div class="flex flex-wrap justify-center gap-6 mb-14">
+        <div class="bg-slate-900 p-6 rounded-lg w-80">
+          <h3 class="text-2xl font-bold mb-4">💻 Web Development</h3>
+          <p class="text-gray-400 mb-4">Fast, secure, and easy-to-manage custom websites tailored to your business needs.</p>
         </div>
-        <div class="bg-slate-800 p-6 rounded-lg w-80">
-          <h3 class="text-2xl font-bold mb-4">🌍 Tour Guide Websites</h3>
-          <p class="text-gray-400 mb-4">Attract tourists and boost your online presence with a personalized site.</p>
-          <a href="{% url 'services' %}" class="text-amber-500 hover:underline">Learn More</a>
+        <div class="bg-slate-900 p-6 rounded-lg w-80">
+          <h3 class="text-2xl font-bold mb-4">🎨 Web Design</h3>
+          <p class="text-gray-400 mb-4">Visually stunning and user-friendly designs that represent your brand.</p>
         </div>
-        <div class="bg-slate-800 p-6 rounded-lg w-80">
-          <h3 class="text-2xl font-bold mb-4">🏪 Local Business Websites</h3>
-          <p class="text-gray-400 mb-4">Get a professional website that brings more customers to your business.</p>
-          <a href="{% url 'services' %}" class="text-amber-500 hover:underline">Learn More</a>
+        <div class="bg-slate-900 p-6 rounded-lg w-80">
+          <h3 class="text-2xl font-bold mb-4">📈 Digital Marketing</h3>
+          <p class="text-gray-400 mb-4">Expand your reach and grow your brand with tailored online marketing strategies.</p>
         </div>
-        <div class="bg-slate-800 p-6 rounded-lg w-80">
-          <h3 class="text-2xl font-bold mb-4">🏪 Local Business Websites</h3>
-          <p class="text-gray-400 mb-4">Get a professional website that brings more customers to your business.</p>
-          <a href="{% url 'services' %}" class="text-amber-500 hover:underline">Learn More</a>
+        <div class="bg-slate-900 p-6 rounded-lg w-80">
+          <h3 class="text-2xl font-bold mb-4">🔍 Search Engine Optimization (SEO)</h3>
+          <p class="text-gray-400 mb-4">Increase visibility and drive organic traffic with specialized SEO services.</p>
         </div>
       </div>
+      <a href="{% url 'services' %}"
+         class="bg-orange-500 hover:bg-orange-600 px-4 py-4 rounded-xl font-bold font-montserrat text-lg">
+        Learn More About My Services 🚀
+      </a>
     </section>
     <!-- Portfolio Section -->
-    <section class="portfolio border-t-2 border-rose-500 py-16 text-center">
+    <section class="mt-10 rounded-xl py-16 text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">💼 Featured Portfolios</h2>
-      <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-10">
-        Take a look at some of the projects we've delivered for our clients.
+      <p class="text-gray-300 text-lg max-w-3xl px-4 mx-auto mb-10">
+        Take a look at some of the projects I've delivered for my clients.
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 px-6 gap-6 mb-14">
         {% for portfolio in portfolios %}
           <div class="bg-slate-900 p-4 rounded-lg hover:shadow-lg">
             <a href="{% url 'portfolio_detail' portfolio.slug %}">
@@ -69,27 +69,35 @@
           </div>
         {% endfor %}
       </div>
+      <a href="{% url 'portfolios' %}"
+         class="bg-rose-500 hover:bg-rose-600 px-4 py-4 rounded-xl font-bold font-montserrat text-lg">View All Portfolios 🚀</a>
     </section>
     <!-- Testimonials Section -->
-    <section class="testimonials py-16 border-t-2 border-fuchsia-500 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">🎤 Client Testimonials</h2>
-      <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-10">Hear what our clients have to say about working with us.</p>
+    <section class="mt-10 rounded-t-xl py-16 border-t-2 border-r-2 border-l-2 border-purple-600 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">📢 Client Testimonials</h2>
+      <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-10">Hear what my clients have to say about working with me.</p>
       <div class="flex flex-wrap justify-center gap-6">
-        <div class="bg-slate-800 p-6 rounded-lg w-80">
-          <p class="text-gray-400 mb-4">"My website looks amazing, and I’ve seen an increase in traffic!"</p>
-          <p class="text-fuchsia-500 font-bold">— John Doe, Photographer</p>
+        <div class="bg-slate-900 p-6 rounded-lg w-80">
+          <p class="text-gray-400 mb-4">
+            Rajarshi transformed my website! It's not only beautiful but also user-friendly. I've received so many compliments!
+          </p>
+          <p class="text-purple-600 font-bold">— Sarah Lee, Freelance Artist</p>
         </div>
-        <div class="bg-slate-800 p-6 rounded-lg w-80">
-          <p class="text-gray-400 mb-4">"The team was professional, and the results were outstanding."</p>
-          <p class="text-fuchsia-500 font-bold">— Jane Smith, Tour Guide</p>
+        <div class="bg-slate-900 p-6 rounded-lg w-80">
+          <p class="text-gray-400 mb-4">I couldn't be happier with my new site! The traffic has doubled since it launched!</p>
+          <p class="text-purple-600 font-bold">— Mike Johnson, Small Business Owner</p>
+        </div>
+        <div class="bg-slate-900 p-6 rounded-lg w-80">
+          <p class="text-gray-400 mb-4">Rajarshi's attention to detail and creativity are unmatched. Highly recommend!</p>
+          <p class="text-purple-600 font-bold">— Emma Brown, Tour Guide</p>
         </div>
       </div>
     </section>
     <!-- CTA Section -->
-    <section class="cta py-16 bg-purple-600 text-center text-white">
+    <section class="py-16 bg-purple-600 text-center text-white">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build Your Website? 💡</h2>
       <p class="text-lg md:text-xl mb-6">
-        Get in touch with us today for a free consultation and take your business online.
+        Get in touch with me today for a free consultation and take your business online.
       </p>
       <a href="{% url 'get_free_consultation' %}">
         <button class="home_cta_btn">
