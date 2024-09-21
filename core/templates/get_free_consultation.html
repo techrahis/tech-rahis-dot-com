@@ -60,7 +60,23 @@
         </div>
         <!-- Booking Form Section -->
         <div class="bg-slate-900 bg-opacity-50 backdrop-blur-md px-6 py-10 rounded-lg shadow-lg">
-            <form method="POST" class="space-y-6">
+            <!-- Success Message -->
+            {% if success_message %}
+                <div class="bg-green-600 font-inter text-white p-4 rounded mb-6">{{ success_message }}</div>
+            {% endif %}
+            <!-- Error Message -->
+            {% if error_message %}
+                <div class="bg-red-600 font-inter text-white p-4 rounded mb-6">{{ error_message }}</div>
+            {% endif %}
+            <!-- Form Errors -->
+            {% if form_errors %}
+                <div class="bg-red-500 text-white p-4 rounded mb-6">
+                    <ul>
+                        {% for field, errors in form_errors.items %}<li>{{ field }}: {{ errors|join:", " }}</li>{% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <form method="POST" class="space-y-6" id="consultation-form">
                 {% csrf_token %}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
@@ -92,7 +108,6 @@
                         <input type="url"
                                name="website"
                                id="website"
-                               required
                                class="w-full p-2 rounded-md bg-slate-800 text-gray-200">
                     </div>
                     <div>
@@ -113,7 +128,7 @@
                     </div>
                 </div>
                 <div class="text-center pt-4">
-                    <button type="submit" class="booking_btn">⚡ Book Consultation</button>
+                    <button type="submit" class="booking_btn" id="submit-button">⚡ Book Consultation</button>
                 </div>
                 <!-- Privacy Note -->
                 <p class="text-gray-400 text-xs mt-6 text-center">
@@ -130,4 +145,43 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the current date and time
+            const now = new Date();
+            
+            // Format the date as YYYY-MM-DD
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const formattedDate = `${year}-${month}-${day}`;
+            
+            // Format the time as HH:MM
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const formattedTime = `${hours}:${minutes}`;
+            
+            // Set the min attribute for the date input
+            const dateInput = document.getElementById('preferred_date');
+            dateInput.setAttribute('min', formattedDate);
+            
+            // Set the min attribute for the time input if the date is today
+            const timeInput = document.getElementById('preferred_time');
+            dateInput.addEventListener('change', function() {
+                if (dateInput.value === formattedDate) {
+                    timeInput.setAttribute('min', formattedTime);
+                } else {
+                    timeInput.removeAttribute('min');
+                }
+            });
+
+            // Handle form submission
+            const form = document.getElementById('consultation-form');
+            const submitButton = document.getElementById('submit-button');
+            form.addEventListener('submit', function() {
+                submitButton.disabled = true;
+                submitButton.innerHTML = 'Submitting...';
+            });
+        });
+    </script>
 {% endblock %}

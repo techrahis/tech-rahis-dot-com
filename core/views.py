@@ -51,4 +51,27 @@ def faq(request):
     return render(request, 'faq.html')
 
 def get_free_consultation(request):
-    return render(request, 'get_free_consultation.html')
+    success_message = None
+    error_message = None
+    form_errors = {}
+
+    if request.method == 'POST':
+        form = ConsultationForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                success_message = "🚀 Your consultation request has been received. You will receive an email with the meeting details shortly."
+                form = ConsultationForm()  # Reset the form
+            except Exception as e:
+                error_message = "💀 An error occurred while saving your consultation request. Please try again."
+        else:
+            form_errors = form.errors
+    else:
+        form = ConsultationForm()
+
+    return render(request, 'get_free_consultation.html', {
+        'form': form,
+        'form_errors': form_errors,
+        'success_message': success_message,
+        'error_message': error_message,
+    })
