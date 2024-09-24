@@ -25,37 +25,11 @@
           referrerpolicy="no-referrer" />
     <link rel="icon" href="{% static 'images/favicon.ico' %}" />
     {% block extra_head %}{% endblock %}
-    <style>
-        /* Loader styles */
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.8); /* Optional: add a background color */
-            z-index: 1000; /* Ensure it appears above other content */
-        }
-        .loader {
-            border: 16px solid #f3f3f3; /* Light grey */
-            border-top: 16px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 2s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
   </head>
   <body class="bg-gray-950" onload="hideLoader()">
-    <div id="loader" style="display: flex;">
+    <div id="loader">
       <div class="loader"></div>
+      <h1 class="text-2xl text-white mt-4 font-montserrat font-semibold">Preparing the page...</h1>
     </div>
     {% include "components/navbar.html" %}
     <div class="mx-auto max-w-4xl flex flex-col min-h-[90vh]">
@@ -64,16 +38,14 @@
       </main>
     </div>
     {% include "components/footer.html" %}
-    <script>
-        function hideLoader() {
-            document.getElementById('loader').style.display = 'none';
-        }
-
-        // Show the loader on page unload (before navigating away)
-        window.addEventListener('beforeunload', function() {
-            document.getElementById('loader').style.display = 'flex';
-        });
-    </script>
     {% block extra_body %}{% endblock %}
+    <script>
+      function hideLoader() {
+          document.getElementById('loader').style.display = 'none';
+      }
+      window.addEventListener('beforeunload', function() {
+          document.getElementById('loader').style.display = 'flex';
+      });
+    </script>
   </body>
 </html>
