@@ -77,3 +77,6 @@ def get_free_consultation(request):
         'success_message': success_message,
         'error_message': error_message,
     })
+
+def sitemap_view(request):
+    return render(request, 'sitemap.xml', content_type='application/xml')

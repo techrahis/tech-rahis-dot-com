@@ -15,6 +15,7 @@ urlpatterns = [
     path('faq/', views.faq, name='faq'),
     path("not-found/", views.not_found_page, name="not_found_page"),
     path("get-free-consultation/", views.get_free_consultation, name="get_free_consultation"),
+    path('sitemap.xml', views.sitemap_view, name='sitemap'),
 ]
 
 if settings.DEBUG:
