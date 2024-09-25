@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
+from helpers.cache.page_cache import cache_if_not_debug
 from django.core.paginator import Paginator
 from .models import Blog, BlogCategory, Tag
 import markdown
 
+@cache_if_not_debug(60 * 60 * 15)  # Cache for 15 minutes
 def blog_list(request):
     query = request.GET.get('q', '')
     category_slug = request.GET.get('category')
@@ -45,6 +47,7 @@ def blog_list(request):
     return render(request, 'blog_list.html', context)
 
 
+@cache_if_not_debug(60 * 60 * 15)  # Cache for 15 minutes
 def blog_detail(request, slug):
     # Get the blog by slug or return a 404 if not found
     blog = get_object_or_404(Blog, slug=slug)

@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .forms import *
 from portfolios.models import Portfolio
+from helpers.cache.page_cache import cache_if_not_debug
 
+@cache_if_not_debug(60 * 60 * 15) # Cache for 15 minutes
 def home(request):
     portfolios = Portfolio.objects.filter(featured=True).only('id', 'title', 'date', 'short_description', 'thumbnail', 'slug').order_by('-date')
     return render(request, 'home.html', {'portfolios': portfolios})

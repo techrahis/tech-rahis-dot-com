@@ -1,122 +1,44 @@
 {% extends "_base.html" %}
 {% load static %}
-{% block title %}About{% endblock %}
+{% block title %}About Us{% endblock %}
 {% block meta_description %}
-    Learn more about Rajarshi Samaddar, a full-stack software engineer from India with expertise in web development and 8+ months of professional experience.
+    Learn more about TechRahis.com, a web development and digital solutions company specializing in serving luxury restaurants and high-end brands, led by CEO Rajarshi Samaddar.
+{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet"
+          type='text/css'
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 {% endblock %}
 {% block content %}
     <div class="text-white mt-4 md:mt-16">
-        <h1 class="font-montserrat text-3xl font-bold mb-4 text-teal-400">🧑‍🦱 About</h1>
+        <h1 class="font-montserrat text-3xl font-bold mb-4 text-teal-400">🧑‍🤝‍🧑 About Us</h1>
         <div class="flex flex-col lg:flex-row lg:space-x-6">
-            <div class="lg:w-1/2 mb-6 lg:mb-0">
+            <div class="lg:w-2/3 mb-6 lg:mb-0">
                 <p class="mb-4 font-opensans">
-                    Hey! I'm <b class="text-violet-500">Rajarshi Samaddar</b>, a full-stack software engineer from India with over 8 months of experience in web development. My pronouns are <b>he/they</b>. I’m passionate about building visually appealing, accessible, and scalable software solutions.
+                    At <a href="{% url 'home' %}" class="text-violet-500">TechRahis.com</a>, we specialize in crafting world-class digital experiences tailored specifically for luxury restaurants and high-end brands. Our dedicated team of expert developers, designers, and digital marketers is led by <b class="text-violet-500">Rajarshi Samaddar</b>, CEO and Founder. With over 8 years of experience in the tech industry, Rajarshi has transformed our company into a premier digital solutions provider.
                 </p>
                 <p class="mb-4 font-opensans">
-                    I thrive on challenges and enjoy learning new technologies. Whether it’s developing applications, optimizing performance, or enhancing user experiences, I’m committed to delivering high-quality work.
+                    Whether it’s building a sophisticated, dynamic website or providing full-scale digital marketing services, <a href="{% url 'home' %}" class="text-violet-500">TechRahis.com</a> offers tailored solutions designed to elevate your brand and captivate your audience. Every project is meticulously handled to ensure that your online presence reflects the elegance and uniqueness of your business.
                 </p>
                 <p class="mb-4 font-opensans">
-                    Outside of coding, I contribute to open-source projects and engage with the tech community. My GitHub repositories have garnered over 2K stars, reflecting my dedication to collaboration and growth.
+                    We understand the nuances of the luxury market and are committed to delivering exceptional results that drive growth and success for our clients.
                 </p>
                 <p class="mb-4 font-opensans">
-                    I excel in remote teams that value collaboration, trust, and inclusion. Let’s connect and create something amazing together!
+                    Have questions or need a consultation? Feel free to reach out to us at <a href="mailto:hi@techrahis.com" class="text-violet-500">hi@techrahis.com</a>. We're here to help you succeed.
                 </p>
             </div>
-            <div class="lg:w-1/2 flex justify-center items-center">
-                <img class="rounded-lg max-h-[60vh] object-cover"
+            <div class="lg:w-1/3 flex flex-col space-y-2 justify-center items-center">
+                <img class="rounded-lg max-h-[40vh] object-cover"
                      src="{% static 'image/me.png' %}"
                      alt="Rajarshi Samaddar" />
+                <p class="font-bold font-inter text-violet-500 text-sm">CEO & Founder, TechRahis.com</p>
             </div>
         </div>
-        <h3 class="font-inter text-2xl font-bold mt-10 mb-4">Skills & Technologies</h3>
-        <ul class="list-inside font-opensans">
-            <li>
-                <i class="fas fa-laptop-code text-pink-500"></i> <b>Front-End:</b> Next.js, React, Redux, Tailwind CSS, Material UI
-            </li>
-            <li>
-                <i class="fas fa-server text-purple-500"></i> <b>Back-End:</b> Node.js, Express, Django, Prisma, PostgreSQL, MongoDB
-            </li>
-            <li>
-                <i class="fas fa-cloud text-teal-500"></i> <b>DevOps & Cloud:</b> AWS, Docker, GitHub Actions
-            </li>
-            <li>
-                <i class="fas fa-comments text-green-500"></i> <b>Soft Skills:</b> Problem-solving, Communication, Leadership
-            </li>
-            <li>
-                <i class="fas fa-language text-blue-500"></i> <b>Languages:</b> English, Hindi, Bengali
-            </li>
-        </ul>
-        <h3 class="font-inter text-2xl font-bold mt-10 mb-4">Experience</h3>
-        <div class="experience-section">
-            <div class="experience-item mb-6 bg-slate-900 p-4 rounded-md">
-                <h4 class="text-xl font-semibold text-pink-500">
-                    <i class="fas fa-user-tie"></i> Developer @ TechRahis.com
-                </h4>
-                <p class="text-sm text-gray-300">September 2024 - Present | Full Time</p>
-                <ul class="list-inside mt-2 font-opensans text-gray-200">
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Developed techrahis.com in just 5 days.
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Integrated MySQL with Redis for lightning-fast dynamic page loading.
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Created a comprehensive admin page for content management.
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Deployed the site on Heroku using Docker containers.
-                    </li>
-                </ul>
-            </div>
-            <div class="experience-item mb-6 bg-slate-900 p-4 rounded-md">
-                <h4 class="text-xl font-semibold text-purple-500">
-                    <i class="fas fa-user-graduate"></i> Jr. Web Developer @ Grey Mirror Pvt. Ltd.
-                </h4>
-                <p class="text-sm text-gray-300">July 2024 - Present | Work From Home</p>
-                <ul class="list-inside mt-2 font-opensans text-gray-200">
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Boosted application responsiveness by 15% through optimized Redis cache usage.
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Implemented Aerospike database, enhancing data retrieval speed by 25%.
-                    </li>
-                </ul>
-            </div>
-            <div class="experience-item mb-6 bg-slate-900 p-4 rounded-md">
-                <h4 class="text-xl font-semibold text-teal-500">
-                    <i class="fas fa-code-branch"></i> Full-Stack MERN Developer @ Hnaya Educational Services
-                </h4>
-                <p class="text-sm text-gray-300">April 2024 - July 2024 | Freelance</p>
-                <ul class="list-inside mt-2 font-opensans text-gray-200">
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Increased BharatLinkr.com's speed by 300% using Next.js and AWS.
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Reduced AWS operational costs by over 50%, from $350 to $170, in one month.
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Led a 4-member team in developing 23 RESTful APIs with Node.js and PostgreSQL.
-                    </li>
-                </ul>
-            </div>
-            <div class="experience-item mb-6 bg-slate-900 p-4 rounded-md">
-                <h4 class="text-xl font-semibold text-green-500">
-                    <i class="fas fa-code"></i> React Developer @ Celebal Technologies
-                </h4>
-                <p class="text-sm text-gray-300">May 2023 - August 2023 | Intern</p>
-                <ul class="list-inside mt-2 font-opensans text-gray-200">
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Developed SkyCast, a feature-rich weather app with location-based forecasting and customizable themes.
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-circle-dot text-green-500"></i> Ranked top among 400+ interns during the training program.
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <h3 class="font-inter text-2xl font-bold mt-10 mb-4">Get In Touch</h3>
+        <h3 class="font-inter text-2xl font-bold mt-10 mb-4">⚙️ Tools & Technologies</h3>
+        <div class="flex flex-wrap gap-4">{% include "components/tools_technologies.html" %}</div>
+        <h3 class="font-inter text-2xl font-bold mt-10 mb-4">🤝 Let’s Collaborate</h3>
         <p class="font-opensans mb-4">
-            Interested in collaborating? Reach out to me at <b class="text-violet-500">raj@techrahis.com</b>, or connect with me on social media:
+            Ready to elevate your business? <a href="{% url 'home' %}" class="text-violet-500">Get Free 1:1 Consustation</a>, or connect with us on social media:
         </p>
         <ul class="flex flex-wrap space-x-4 mb-10">
             {% include "components/social_icon.html" %}

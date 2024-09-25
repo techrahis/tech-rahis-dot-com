@@ -3,7 +3,7 @@ from .models import Portfolio
 import markdown
 from helpers.cache.page_cache import cache_if_not_debug
 
-@cache_if_not_debug(60 * 60 * 24 * 7, 'portfolios') # Cache for 7 days
+@cache_if_not_debug(60 * 60 * 15) # Cache for 15 minutes
 def portfolios(request):
     category = request.GET.get('category')
     if category:
@@ -16,7 +16,7 @@ def portfolios(request):
     
     return render(request, 'portfolio.html', {'portfolios': portfolios})
 
-@cache_if_not_debug(60 * 60 * 24 * 7, 'portfolio_detail') # Cache for 7 days
+@cache_if_not_debug(60 * 60 * 15) # Cache for 15 minutes
 def portfolio_detail(request, slug):
     portfolio = get_object_or_404(Portfolio, slug=slug)
     portfolio.long_description = markdown.markdown(portfolio.long_description, extensions=['extra'])

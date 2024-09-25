@@ -1,28 +1,28 @@
 {% extends "_base.html" %}
-{% block title %}Contact{% endblock %}
+{% block title %}Contact Us{% endblock %}
 {% block meta_description %}
-    I typically respond within 24 hours. Please use this form for professional inquiries only. Promotions and spam will not be entertained.
+    We respond within 24 hours. Please use this form for professional inquiries only regarding our luxury restaurant web solutions.
 {% endblock %}
 {% block content %}
     <div class="text-white mt-4 md:mt-16 md:w-4/5">
-        <h1 class="font-montserrat text-3xl font-bold mb-4 text-sky-500">📧 Contact</h1>
+        <h1 class="font-montserrat text-3xl font-bold mb-4 text-sky-500">📧 Contact Us</h1>
         <p class="mb-10 font-opensans">
-            I typically respond within 24 hours. Please use this form for professional inquiries only. Promotions and spam will not be entertained.
+            Thank you for considering us for your restaurant's digital transformation. We respond to inquiries within 24 hours. Please use this form for professional inquiries only; promotions and spam will not be entertained.
         </p>
         <!-- Connect Section -->
-        <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">🤝 Let's connect!</h3>
+        <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">🤝 Let's Connect!</h3>
         <p class="mb-4">
-            Feel free to reach out to me at <b class="font-montserrat text-violet-500">hi@techrahis.com</b>, or find me on social media:
+            You can reach out to us directly at <b class="font-montserrat text-violet-500">hi@techrahis.com</b>, or connect with us on social media:
         </p>
         <ul class="flex flex-wrap space-x-4 mb-10">
             {% include "components/social_icon.html" %}
         </ul>
         <!-- Message Form Section -->
-        <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">💬 Send me a message</h3>
+        <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">💬 Send Us a Message</h3>
         {% if success_message %}
             <div class="bg-green-100 border border-emerald-400 md:w-4/5 text-emerald-700 px-4 py-3 rounded mb-6 flex items-center gap-2">
                 <i class="fa-solid fa-circle-check text-xl"></i>
-                <span>{{ success_message }}. I'll get back to you within 24 hours.</span>
+                <span>{{ success_message }}. We'll get back to you within 24 hours.</span>
             </div>
         {% endif %}
         <form class="md:w-4/5"
@@ -32,7 +32,7 @@
             {% csrf_token %}
             <!-- Full Name Field -->
             <div class="mb-4">
-                <label for="name" class="block text-md font-medium text-gray-100 font-inter">👤 Full name</label>
+                <label for="name" class="block text-md font-medium text-gray-100 font-inter">👤 Full Name</label>
                 <input type="text"
                        id="name"
                        name="name"
@@ -87,7 +87,7 @@
                 {% endif %}
             </div>
             <!-- Message Field -->
-            <div class="mb-12">
+            <div class="mb-4">
                 <label for="message"
                        class="block text-md font-medium text-gray-100 font-inter">✉️ Message</label>
                 <textarea id="message"
@@ -106,14 +106,14 @@
             <!-- Honeypot Field (Hidden) -->
             <div class="hidden">{{ form.honeypot }}</div>
             <!-- Submit Button -->
-            <div class="mb-12">
+            <div>
                 <button type="submit"
                         class="rounded-md font-montserrat font-bold bg-violet-600 text-white py-2 px-4 w-full hover:bg-purple-600 duration-1000 transition-transform">
                     ✈️ Send Your Message
                 </button>
             </div>
             <!-- Privacy Note -->
-            <p class="text-gray-400 text-xs mt-2">
+            <p class="text-gray-400 text-center text-xs mt-4 mb-12">
                 🔒 Your information will only be used to respond to your inquiry. We value your privacy and will not share your details with any third parties.
             </p>
         </form>

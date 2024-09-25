@@ -2,13 +2,13 @@
 {% load static %}
 {% block title %}Services{% endblock %}
 {% block meta_description %}
-    Hey there! I'm Rajarshi Samaddar, a full-stack software engineer from India with over 8 months of professional experience. My pronouns are he/they.
+    Learn more about the services offered by TechRahis.com, a premier web development and digital solutions company specializing in luxury restaurants and high-end brands.
 {% endblock %}
 {% block content %}
     <div class="text-white mt-4 md:mt-16">
         <h1 class="font-montserrat text-3xl font-bold mb-4 text-amber-400">⚙️ Services</h1>
         <p class="mb-10 font-opensans">
-            I offer a range of services to help businesses grow online, from building high-quality websites to enhancing your online visibility. Explore my services below to see how I can help.
+            At <a href="{% url 'home' %}" class="text-violet-500">TechRahis.com</a>, we offer a range of services tailored specifically for luxury restaurants to enhance your online presence and grow your business. Explore our services below to see how we can assist you.
         </p>
     </div>
     <div class="space-y-12">
@@ -18,7 +18,7 @@
                 <i class="fas fa-code"></i> Web Development
             </h2>
             <p class="text-gray-200 mb-4">
-                My web development services ensure that your site is fast, secure, and easy to manage. I build custom websites that meet your business needs, whether you're looking for an e-commerce platform, a portfolio site, or a content management system.
+                Our web development services ensure that your site is fast, secure, and easy to manage. We build custom websites tailored to your business needs, whether you're looking for an e-commerce platform, a portfolio site, or a content management system.
             </p>
             <ul class="text-gray-300 list-inside mb-4">
                 <li>
@@ -35,7 +35,7 @@
                 </li>
             </ul>
             <a href="{% url 'get_free_consultation' %}"
-               class="text-pink-500 font-inter hover:underline">📢 Book a free Web Development consultation with me &rarr;</a>
+               class="text-pink-500 font-inter hover:underline">📢 Book a free Web Development consultation with us &rarr;</a>
         </div>
         <!-- Web Design Section -->
         <div class="bg-slate-900 p-6 rounded-md">
@@ -43,7 +43,7 @@
                 <i class="fas fa-paint-brush"></i> Web Design
             </h2>
             <p class="text-gray-200 mb-4">
-                Great design is key to making a lasting impression. I create visually stunning and user-friendly designs that represent your brand. From layouts to typography, I ensure every detail aligns with your goals.
+                Great design is key to making a lasting impression. We create visually stunning and user-friendly designs that represent your brand. From layouts to typography, we ensure every detail aligns with your goals.
             </p>
             <ul class="text-gray-300 list-inside mb-4">
                 <li>
@@ -60,7 +60,7 @@
                 </li>
             </ul>
             <a href="{% url 'get_free_consultation' %}"
-               class="text-purple-500 font-inter hover:underline">📢 Book a free Web Design consultation with me &rarr;</a>
+               class="text-purple-500 font-inter hover:underline">📢 Book a free Web Design consultation with us &rarr;</a>
         </div>
         <!-- Digital Marketing Section -->
         <div class="bg-slate-900 p-6 rounded-md">
@@ -68,7 +68,7 @@
                 <i class="fas fa-bullhorn"></i> Digital Marketing
             </h2>
             <p class="text-gray-200 mb-4">
-                Expand your reach and grow your brand with my digital marketing services. I offer strategies tailored to your business to drive traffic, engage customers, and convert leads through online marketing channels.
+                Expand your reach and grow your brand with our digital marketing services. We offer strategies tailored to your business to drive traffic, engage customers, and convert leads through online marketing channels.
             </p>
             <ul class="text-gray-300 list-inside mb-4">
                 <li>
@@ -85,7 +85,7 @@
                 </li>
             </ul>
             <a href="{% url 'get_free_consultation' %}"
-               class="text-teal-500 hover:underline font-inter">📢 Book a free Digital Marketing consultation with me &rarr;</a>
+               class="text-teal-500 hover:underline font-inter">📢 Book a free Digital Marketing consultation with us &rarr;</a>
         </div>
         <!-- SEO Section -->
         <div class="bg-slate-900 p-6 rounded-md">
@@ -93,7 +93,7 @@
                 <i class="fas fa-chart-line"></i> Search Engine Optimization (SEO)
             </h2>
             <p class="text-gray-200 mb-4">
-                Increase your visibility and drive organic traffic to your website with my SEO services. I specialize in on-page and off-page SEO to ensure your site ranks higher on search engines and attracts more visitors.
+                Increase your visibility and drive organic traffic to your website with our SEO services. We specialize in on-page and off-page SEO to ensure your site ranks higher on search engines and attracts more visitors.
             </p>
             <ul class="text-gray-300 list-inside mb-4">
                 <li>
@@ -110,7 +110,32 @@
                 </li>
             </ul>
             <a href="{% url 'get_free_consultation' %}"
-               class="text-green-500 hover:underline font-inter">📢 Book a free SEO consultation with me &rarr;</a>
+               class="text-green-500 hover:underline font-inter">📢 Book a free SEO consultation with us &rarr;</a>
+        </div>
+        <!-- Additional Services Section -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-2xl font-bold text-orange-500 mb-4">
+                <i class="fas fa-cogs"></i> Additional Services
+            </h2>
+            <p class="text-gray-200 mb-4">
+                We also provide a range of additional services to further enhance your business's online presence and efficiency:
+            </p>
+            <ul class="text-gray-300 list-inside mb-4">
+                <li>
+                    <i class="fa-solid fa-circle-check text-green-500"></i> Social Media Optimization (SMO)
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check text-green-500"></i> Content Writing
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check text-green-500"></i> Graphic Design
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check text-green-500"></i> Logo Design
+                </li>
+            </ul>
+            <a href="{% url 'get_free_consultation' %}"
+               class="text-orange-500 hover:underline font-inter">📢 Book a free consultation for Additional Services with us &rarr;</a>
         </div>
     </div>
 </div>

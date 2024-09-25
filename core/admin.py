@@ -20,4 +20,3 @@ class ContactAdmin(admin.ModelAdmin):
 techrahis_admin.register(Contact, ContactAdmin)
 techrahis_admin.register(User)
 techrahis_admin.register(Consultation)
-techrahis_admin.register(SiteData)

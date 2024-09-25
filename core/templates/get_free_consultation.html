@@ -1,74 +1,76 @@
 {% extends "_base.html" %}
 {% load static %}
-{% block title %}Get Free 1:1 Consultation{% endblock %}
+{% block title %}Exclusive 1:1 Consultation for Luxury Restaurant Websites | TechRahis{% endblock %}
 {% block meta_description %}
-    Build Your Online Presence with Expert Web Development — Get a Free 1:1 Consultation Today!
+    Elevate your restaurant’s digital presence with bespoke web development — Schedule your exclusive consultation today!
+{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet"
+          type='text/css'
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 {% endblock %}
 {% block content %}
     <div class="text-white mt-4 md:mt-16">
         <!-- Header Section -->
-        <h1 class="font-montserrat text-2xl font-bold mb-6">
-            Build Your Online Presence with Expert Web Development — Get a Free 1:1 Consultation Today!
+        <h1 class="font-montserrat text-3xl font-bold mb-6 text-amber-400">
+            Exclusive Web Solutions for Luxury Restaurants — Free 1:1 Consultation
         </h1>
         <p class="mb-10 font-opensans">
-            Get personalized advice on how to enhance your website, attract more customers, and grow your business online. This free session will provide you with tailored recommendations specific to your business goals.
+            Craft an unforgettable online experience for your patrons. Our consultation provides personalized insights on creating a stunning, responsive website that reflects your restaurant’s unique ambiance and attracts high-end clientele.
         </p>
         <!-- Benefits Section -->
         <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">
-            Discover the key benefits of working with me:
+            Why Partner with Us? Key Benefits:
         </h3>
-        <ul class="mb-10">
+        <ul class="mb-10 list-disc list-inside">
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500 text-lg"></i>Custom website design and development for local businesses
+                <i class="fa-solid fa-circle-check text-green-500 text-lg"></i> Bespoke website design tailored to luxury dining
             </li>
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500"></i>Mobile-responsive design
+                <i class="fa-solid fa-circle-check text-green-500"></i> Mobile-first approach ensuring a flawless experience on any device
             </li>
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500"></i>SEO optimization to increase online visibility
+                <i class="fa-solid fa-circle-check text-green-500"></i> SEO strategies to attract high-value guests
             </li>
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500"></i>E-commerce solutions for seamless online sales
+                <i class="fa-solid fa-circle-check text-green-500"></i> Custom online reservation systems integrated with your brand
             </li>
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500"></i>Ongoing maintenance and support to keep your website up-to-date
+                <i class="fa-solid fa-circle-check text-green-500"></i> Ongoing premium support and website maintenance
             </li>
             <li class="mb-2 flex items-center gap-4">
-                <i class="fa-solid fa-circle-check text-green-500"></i>Affordable pricing starting at $399
+                <i class="fa-solid fa-circle-check text-green-500"></i> Starting at $400 — tailored for upscale restaurants
             </li>
         </ul>
-        <!-- Why Work With Me Section -->
+        <!-- Why Work With Us Section -->
         <h3 class="font-inter text-xl font-bold mb-4 flex justify-start items-center gap-2">
-            Struggling to convert online visitors into customers? Here's how I can help:
+            Turn Your Website Visitors into Elite Diners:
         </h3>
         <p class="mb-6 font-opensans">
-            I specialize in creating modern, user-friendly websites that are designed to turn your website visitors into paying customers. From sleek booking systems to high-converting landing pages, I provide solutions tailored to your business.
+            Our expertise lies in crafting modern, visually stunning websites that resonate with luxury dining patrons. From immersive menu displays to high-end booking experiences, we align our web solutions with your restaurant's elite clientele.
         </p>
         <!-- Testimonials Section -->
-        <div class="bg-slate-900 p-6 rounded-lg">
+        <div class="bg-slate-900 p-6 rounded-lg mb-10">
             <p class="text-gray-400 italic mb-4">
-                "Working with Rajarshi has completely transformed my business. My website not only looks amazing, but I’ve seen a significant increase in inquiries!"
+                "TechRahis elevated our online presence to match the level of exclusivity we offer in our dining room. A true game-changer for attracting discerning guests."
             </p>
-            <p class="text-purple-600 font-bold">— Emma Brown, Tour Guide</p>
+            <p class="text-purple-600 font-bold">— Alessandro Marino, Michelin-Starred Restaurant Owner</p>
         </div>
         <!-- Action Section -->
         <div class="text-center mt-14">
-            <h2 class="font-montserrat text-2xl font-bold mb-4">Ready to Get Started? Book Your Free Consultation 🚀</h2>
+            <h2 class="font-montserrat text-2xl font-bold mb-4">Ready to Transform Your Digital Space? 🚀</h2>
             <p class="mb-6 font-opensans">
-                Schedule your free 1:1 consultation today and take the first step towards building a website that works for you.
+                Schedule your free 1:1 consultation today and bring your restaurant’s digital experience to life with TechRahis.
             </p>
         </div>
         <!-- Booking Form Section -->
         <div class="bg-slate-900 bg-opacity-50 backdrop-blur-md px-6 py-10 rounded-lg shadow-lg">
-            <!-- Success Message -->
             {% if success_message %}
                 <div class="bg-green-600 font-inter text-white p-4 rounded mb-6">{{ success_message }}</div>
             {% endif %}
-            <!-- Error Message -->
             {% if error_message %}
                 <div class="bg-red-600 font-inter text-white p-4 rounded mb-6">{{ error_message }}</div>
             {% endif %}
-            <!-- Form Errors -->
             {% if form_errors %}
                 <div class="bg-red-500 text-white p-4 rounded mb-6">
                     <ul>
@@ -104,7 +106,7 @@
                                class="w-full p-2 rounded-md bg-slate-800 text-gray-200">
                     </div>
                     <div>
-                        <label for="website" class="block text-gray-300 mb-2">Website</label>
+                        <label for="website" class="block text-gray-300 mb-2">Website (if applicable)</label>
                         <input type="url"
                                name="website"
                                id="website"
@@ -128,44 +130,39 @@
                     </div>
                 </div>
                 <div class="text-center pt-4">
-                    <button type="submit" class="booking_btn" id="submit-button">⚡ Book Consultation</button>
+                    <button type="submit" class="booking_btn" id="submit-button">⚡ Book My Free Consultation</button>
                 </div>
-                <!-- Privacy Note -->
                 <p class="text-gray-400 text-xs mt-6 text-center">
-                    🔒 Your information will only be used to respond to your inquiry. We value your privacy and will not share your details with any third parties.
+                    🔒 Your information will be kept confidential and used only to respond to your inquiry.
                 </p>
             </form>
         </div>
-        <!-- Trust Section (Optional) -->
+        <!-- Trust Section -->
         <div class="mt-14 text-center">
-            <div class="flex justify-center items-center gap-6">
-                <img src="{% static 'image/google-ads.png' %}" alt="Logo 1" class="h-10">
-                <img src="{% static 'image/meta.png' %}" alt="Logo 3" class="h-10">
-                <img src="{% static 'image/microsoft.png' %}" alt="Logo 2" class="h-10">
-            </div>
+            <h2 class="font-montserrat text-2xl font-bold mb-4">⚙️ Tools & Technologies</h2>
+            <div class="flex flex-wrap justify-center gap-4">{% include "components/tools_technologies.html" %}</div>
+        </div>
+        <!-- Social Media Section -->
+        <div class="mt-14 text-center">
+            <h2 class="font-montserrat text-2xl font-bold mb-4">🌐 Connect with Us on Social Media</h2>
+            <ul class="flex flex-wrap justify-center space-x-4 mb-10">
+                {% include "components/social_icon.html" %}
+            </ul>
         </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Get the current date and time
             const now = new Date();
-            
-            // Format the date as YYYY-MM-DD
             const year = now.getFullYear();
             const month = String(now.getMonth() + 1).padStart(2, '0');
             const day = String(now.getDate()).padStart(2, '0');
             const formattedDate = `${year}-${month}-${day}`;
-            
-            // Format the time as HH:MM
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const formattedTime = `${hours}:${minutes}`;
             
-            // Set the min attribute for the date input
             const dateInput = document.getElementById('preferred_date');
             dateInput.setAttribute('min', formattedDate);
-            
-            // Set the min attribute for the time input if the date is today
             const timeInput = document.getElementById('preferred_time');
             dateInput.addEventListener('change', function() {
                 if (dateInput.value === formattedDate) {
@@ -175,7 +172,6 @@
                 }
             });
 
-            // Handle form submission
             const form = document.getElementById('consultation-form');
             const submitButton = document.getElementById('submit-button');
             form.addEventListener('submit', function() {

@@ -2,75 +2,86 @@
 {% load static %}
 {% block title %}FAQ{% endblock %}
 {% block meta_description %}
-    Frequently Asked Questions (FAQ) about the web development, web design, digital marketing, and SEO services offered by Rajarshi Samaddar. Get all your questions answered here.
+    Frequently Asked Questions (FAQ) about the web development, web design, digital marketing, SEO, and related services offered by TechRahis.com. Get all your questions answered here.
 {% endblock %}
 {% block content %}
     <div class="text-white mt-4 md:mt-16">
         <h1 class="font-montserrat text-3xl font-bold mb-4 text-violet-400">❓ Frequently Asked Questions</h1>
         <p class="mb-10 font-opensans">
-            Below are some of the most frequently asked questions about my services. If you don't find the answer you're looking for, feel free to <a href="{% url 'contact' %}" class="text-pink-500 hover:underline">contact me</a> directly.
+            Below are some of the most frequently asked questions about our services. If you don't find the answer you're looking for, feel free to <a href="{% url 'contact' %}" class="text-pink-500 hover:underline">contact us</a> directly.
         </p>
     </div>
     <div class="space-y-6">
         <!-- Question 1 -->
         <div class="bg-slate-900 p-6 rounded-md">
             <h2 class="font-montserrat text-xl font-bold text-pink-500 mb-4">1. What services do you offer?</h2>
-            <p class="text-gray-200">I offer a variety of services to help businesses succeed online, including:</p>
+            <p class="text-gray-200">We offer a comprehensive range of services to help businesses succeed online, including:</p>
             <ul class="text-gray-300 list-disc list-inside mt-2">
                 <li>Web Development</li>
                 <li>Web Design</li>
-                <li>Digital Marketing</li>
+                <li>Social Media Optimization (SMO)</li>
+                <li>Content Writing</li>
+                <li>Graphic and Logo Design</li>
                 <li>Search Engine Optimization (SEO)</li>
+                <li>Digital Marketing</li>
             </ul>
         </div>
         <!-- Question 2 -->
         <div class="bg-slate-900 p-6 rounded-md">
             <h2 class="font-montserrat text-xl font-bold text-purple-500 mb-4">2. How much do your services cost?</h2>
             <p class="text-gray-200">
-                The cost depends on the scope of the project. For example, a simple portfolio website starts at $399, but the price can vary based on additional features, integrations, and other customizations. Contact me for a custom quote.
+                The cost varies depending on the scope and complexity of the project. For instance, a simple portfolio website starts at $399, while other services have different pricing structures. Please <a href="{% url 'get_free_consultation' %}"
+    class="text-pink-500 hover:underline">book a free consultation</a> for a detailed quote tailored to your needs.
             </p>
         </div>
         <!-- Question 3 -->
         <div class="bg-slate-900 p-6 rounded-md">
             <h2 class="font-montserrat text-xl font-bold text-teal-500 mb-4">3. How long does it take to build a website?</h2>
             <p class="text-gray-200">
-                The timeline depends on the complexity of the project. A basic website may take 1-2 weeks, while a more complex project, like an e-commerce site or a custom web app, could take 4-6 weeks or longer.
+                The timeline for project completion varies based on complexity. A basic website can be completed in 1-2 weeks, while more intricate projects, such as e-commerce sites or custom web applications, may take 4-6 weeks or longer.
             </p>
         </div>
         <!-- Question 4 -->
         <div class="bg-slate-900 p-6 rounded-md">
             <h2 class="font-montserrat text-xl font-bold text-green-500 mb-4">4. Do you offer website maintenance?</h2>
             <p class="text-gray-200">
-                Yes, I offer ongoing website maintenance services, including updates, security checks, and performance monitoring to ensure your site remains fast and secure. You can opt for monthly or quarterly maintenance packages.
+                Yes, we provide ongoing website maintenance services, including updates, security checks, and performance monitoring to ensure your site remains fast and secure. You can choose from monthly or quarterly maintenance packages.
             </p>
         </div>
         <!-- Question 5 -->
         <div class="bg-slate-900 p-6 rounded-md">
             <h2 class="font-montserrat text-xl font-bold text-pink-500 mb-4">5. Can you redesign my existing website?</h2>
             <p class="text-gray-200">
-                Absolutely! I can help you revamp your current website to improve its design, performance, and user experience. Whether you're looking for a complete overhaul or just some minor updates, I've got you covered.
+                Absolutely! We specialize in revamping existing websites to enhance design, performance, and user experience. Whether you're looking for a complete overhaul or just minor updates, we're here to assist you.
             </p>
         </div>
         <!-- Question 6 -->
         <div class="bg-slate-900 p-6 rounded-md">
             <h2 class="font-montserrat text-xl font-bold text-purple-500 mb-4">6. What is SEO, and why do I need it?</h2>
             <p class="text-gray-200">
-                SEO (Search Engine Optimization) is the process of improving your website's visibility on search engines like Google. With effective SEO strategies, your site can rank higher, attract more traffic, and generate more leads. It's crucial for long-term online success.
+                SEO (Search Engine Optimization) is the process of enhancing your website's visibility on search engines like Google. Effective SEO strategies can help your site rank higher, attract more visitors, and generate leads, making it essential for long-term online success.
             </p>
         </div>
         <!-- Question 7 -->
         <div class="bg-slate-900 p-6 rounded-md">
             <h2 class="font-montserrat text-xl font-bold text-teal-500 mb-4">7. Do you provide digital marketing services?</h2>
             <p class="text-gray-200">
-                Yes, I offer digital marketing services including social media marketing, email marketing, content marketing, and pay-per-click (PPC) advertising. These services help you reach your target audience and grow your online presence.
+                Yes, we offer a variety of digital marketing services, including social media marketing, email marketing, content marketing, and pay-per-click (PPC) advertising. These services are designed to help you reach your target audience and grow your online presence effectively.
             </p>
         </div>
         <!-- Question 8 -->
         <div class="bg-slate-900 p-6 rounded-md">
             <h2 class="font-montserrat text-xl font-bold text-green-500 mb-4">8. How can I get started?</h2>
             <p class="text-gray-200">
-                You can easily get started by booking a free consultation. Just head over to the <a href="{% url 'get_free_consultation' %}"
-    class="text-pink-500 hover:underline">consultation page</a> and pick a time that works best for you. We'll discuss your project and how I can help!
+                Getting started is simple! You can book a free consultation by visiting our <a href="{% url 'get_free_consultation' %}"
+    class="text-pink-500 hover:underline">consultation page</a>. Choose a time that works best for you, and we’ll discuss your project and how we can assist you.
+            </p>
+        </div>
+        <!-- Question 9 -->
+        <div class="bg-slate-900 p-6 rounded-md">
+            <h2 class="font-montserrat text-xl font-bold text-pink-500 mb-4">9. What payment methods do you accept?</h2>
+            <p class="text-gray-200">
+                We accept various payment methods, including bank transfers, credit cards, and online payment platforms. We’ll discuss the payment process during our consultation.
             </p>
         </div>
     </div>

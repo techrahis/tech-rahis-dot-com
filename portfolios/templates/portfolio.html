@@ -1,13 +1,13 @@
 {% extends "_base.html" %}
 {% block title %}Portfolios{% endblock %}
 {% block meta_description %}
-    I've been working on a variety of projects over the years. Here are some of the projects I've worked on. Click on a project to learn more about it.
+    Explore our exquisite portfolio showcasing stunning website designs and digital solutions tailored for luxury restaurants.
 {% endblock %}
 {% block content %}
     <div class="text-white mt-4 md:mt-16">
         <h1 class="font-montserrat text-3xl font-bold mb-4 text-pink-500">🌟 Portfolios</h1>
         <p class="mb-4 text-gray-300">
-            I've been working on a variety of projects over the years. Here are some of the projects I've worked on. Click on a project to learn more about it.
+            Explore our exquisite portfolio showcasing stunning website designs and digital solutions tailored for luxury restaurants. Click on a project to learn more about how we can elevate your restaurant's online presence.
         </p>
         <div class="flex flex-wrap mb-10">
             <a href="{% url 'portfolios' %}"
@@ -16,10 +16,10 @@
                class="text-gray-50 text-xs font-bold font-inter py-1 px-2 border-2 rounded-full mr-2 mb-2 {% if request.GET.category == 'development' %}bg-purple-600{% endif %}">💻 Development</a>
             <a href="{% url 'portfolios' %}?category=design"
                class="text-gray-50 text-xs font-bold font-inter py-1 px-2 border-2 rounded-full mr-2 mb-2 {% if request.GET.category == 'design' %}bg-purple-600{% endif %}">🎨 Design</a>
+            <a href="{% url 'portfolios' %}?category=branding"
+               class="text-gray-50 text-xs font-bold font-inter py-1 px-2 border-2 rounded-full mr-2 mb-2 {% if request.GET.category == 'branding' %}bg-purple-600{% endif %}">🌟 Branding</a>
             <a href="{% url 'portfolios' %}?category=seo"
                class="text-gray-50 text-xs font-bold font-inter py-1 px-2 border-2 rounded-full mr-2 mb-2 {% if request.GET.category == 'seo' %}bg-purple-600{% endif %}">🔍 SEO</a>
-            <a href="{% url 'portfolios' %}?category=app"
-               class="text-gray-50 text-xs font-bold font-inter py-1 px-2 border-2 rounded-full mr-2 mb-2 {% if request.GET.category == 'app' %}bg-purple-600{% endif %}">📱 Mobile App</a>
         </div>
     </div>
     <div class="space-y-8 text-white mb-10">
