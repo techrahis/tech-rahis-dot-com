@@ -13,14 +13,14 @@
   Writing <a href="/writing" class="view-all">View All →</a>
 </h2>
 <ul>
-  {{ range where .Site.Pages "Type" "writing" }}
+  {{ range first 3 (where .Site.RegularPages "Type" "writing") }}
   <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{ end }}
 </ul>
 
 <h2 class="heading-1">Work <a href="/work" class="view-all">View All →</a></h2>
 <ul>
-  {{ range where .Site.Pages "Type" "work" }}
+  {{ range first 3 (where .Site.RegularPages "Type" "work") }}
   <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{ end }}
 </ul>

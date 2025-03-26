@@ -65,7 +65,7 @@ a {
 
 .view-all {
   font-size: 12px;
-  color: #64b5f6;
+  color: #9c9c9c;
   text-decoration: none;
   margin-left: 10px;
 }
@@ -90,4 +90,10 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width: 700px) {
+  main {
+    padding: 0 1rem;
+  }
 }
