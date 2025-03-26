@@ -1,0 +1,28 @@
+{{ define "main" }}
+<h1 class="name">{{ (index .Site.Data.about "name") }}</h1>
+<p class="about">{{ (index .Site.Data.about "about") | safeHTML }}</p>
+
+<h2 class="heading-1">Skills</h2>
+<div class="skills">
+  {{ range (index .Site.Data.about "skills") }}
+  <span>{{ . }}</span>
+  {{ end }}
+</div>
+
+<h2 class="heading-1">
+  Writing <a href="/writing" class="view-all">View All →</a>
+</h2>
+<ul>
+  {{ range where .Site.Pages "Type" "writing" }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+
+<h2 class="heading-1">Work <a href="/work" class="view-all">View All →</a></h2>
+<ul>
+  {{ range where .Site.Pages "Type" "work" }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+
+{{ end }}

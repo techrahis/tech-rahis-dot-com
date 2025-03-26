@@ -1,1 +1,0 @@
-web: gunicorn tech_rahis.wsgi
