@@ -78,6 +78,11 @@ a:hover {
   margin-bottom: 2rem;
 }
 
+.oops-p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 footer {
   display: flex;
   gap: 1rem;

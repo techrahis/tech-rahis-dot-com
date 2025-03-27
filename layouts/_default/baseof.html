@@ -11,8 +11,19 @@
     <!-- Favicon Partial -->
     {{ partial "favicon.html" . }}
 
-    <title>Rajarshi Samaddar</title>
-    <meta name="description" content="Rajarshi Samaddar's personal website" />
+    <title>
+      {{ if .IsHome }} {{ .Site.Params.title }} {{ else }} {{ .Title }} - {{
+      .Site.Params.title }} {{ end }}
+    </title>
+
+    <meta
+      name="description"
+      content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="google" content="notranslate" />
+    <meta name="theme-color" content="#000000" />
     <meta name="author" content="Rajarshi Samaddar" />
     <meta
       name="keywords"
