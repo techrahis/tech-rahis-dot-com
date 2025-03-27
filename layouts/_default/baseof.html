@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="/css/content.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- Favicon Partial -->
+    {{ partial "favicon.html" . }}
+
     <title>Rajarshi Samaddar</title>
     <meta name="description" content="Rajarshi Samaddar's personal website" />
     <meta name="author" content="Rajarshi Samaddar" />
-    <meta name="keywords" content="Rajarshi Samaddar, Techrahis, Techrahis.com, Techrahis.in, Techrahis.org, Techrahis.net, Techrahis.info, Techrahis.biz, Techrahis.us, Techrahis.ca, Techrahis.au, Techrahis.eu, Techrahis.in, Techrahis.co.in, Techrahis.co.uk, Techrahis.co.us, Techrahis.co.ca, Techrahis.co.au, Techrahis.co.eu" />
+    <meta
+      name="keywords"
+      content="Rajarshi Samaddar, Techrahis, Techrahis.com, Techrahis.in, Techrahis.org, Techrahis.net, Techrahis.info, Techrahis.biz, Techrahis.us, Techrahis.ca, Techrahis.au, Techrahis.eu"
+    />
   </head>
   <body>
     <main>{{ block "main" . }}{{ end }}</main>
     <footer>
-      <a href="https://x.com/techrahis" target="_blank">@techrahis</a>
+      <a href="http://wa.me/+916295611536" target="_blank">@wapp</a>
       <a href="https://github.com/techrahis" target="_blank">github</a>
       <a href="https://linkedin.com/in/techrahis" target="_blank">linkedin</a>
+      <a href="https://x.com/techrahis" target="_blank">x</a>
       <a href="mailto:techrahis@outlook.com">email</a>
     </footer>
   </body>

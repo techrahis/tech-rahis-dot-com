@@ -3,6 +3,8 @@ title: "Understanding MVC in Laravel."
 author: "Rajarshi Samaddar"
 date: 2024-12-21
 description: "The reason I love building things."
+type: "writing"
+star: true
 ---
 
 ## What is MVC?
@@ -22,16 +24,17 @@ Laravel, a popular PHP framework, follows the MVC architecture, providing develo
 A **View** in Laravel is typically a Blade template file that resides in the `resources/views` directory. Here’s how you can create a View:
 
 ### **Example of a View (resources/views/example.blade.php)**
+
 ```html
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Example Page</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Welcome to Laravel</h1>
     <p>This is an example view.</p>
-</body>
+  </body>
 </html>
 ```
 
@@ -42,15 +45,19 @@ A **View** in Laravel is typically a Blade template file that resides in the `re
 A **Controller** in Laravel is a PHP class that handles the application logic. Here’s how to create one:
 
 ### **1. Use the Artisan Command**
+
 Run the following command in your terminal to create a controller:
+
 ```sh
 php artisan make:controller ExampleController
 ```
 
 ### **2. Locate the Controller**
+
 The newly created controller will be in the `app/Http/Controllers` directory.
 
 ### **3. Define a Method in the Controller**
+
 Open the controller file and add methods for handling requests:
 
 ```php
@@ -74,6 +81,7 @@ class ExampleController extends Controller
 After creating a controller method, you need to define a **route** to access it.
 
 ### **Define the Route in `routes/web.php`**
+
 ```php
 use App\Http\Controllers\ExampleController;
 

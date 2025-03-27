@@ -1,13 +1,23 @@
 name: "Rajarshi Samaddar"
-about: "I'm a developer, optimist, and tech entrepreneur. Founder & lead developer at Ridotech, a data-driven digital marketing agency. I mentor junior developers and am currently seeking a stable full-time backend role. View my resume <a href='/Resume.pdf' target='_blank'>here</a>."
+about: "Developer, entrepreneur, and tech optimist. Founder & Lead Dev at <a href='https://ridotech.com' target='_blank'>Ridotech</a> (ai-driven agency). Mentors juniors, solves complex backend challenges. Seeking full-time backend roles. View my resume <a href='/Resume.pdf' target='_blank'>here</a>."
 skills:
   - React.js
+  - Redux
+  - Zustand
   - Next.js
   - Node.js
   - Express.js
   - Django
-  - SQL
+  - WebSockets
+  - PostgreSQL
+  - MySQL
   - MongoDB
   - Redis
+  - Caching
+  - Jest
   - AWS
-  - Azure
+  - Docker
+  - CI/CD
+  - REST APIs
+  - JWT
+  - OAuth

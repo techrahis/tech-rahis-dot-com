@@ -5,10 +5,24 @@
 .content-author {
   font-size: 0.8rem;
   margin-top: 0.3rem;
-  color: #99a1af;
+}
+
+.content-author a {
+  color: #9f9fa9;
+  text-decoration: none;
+}
+
+.content-author a:hover {
+  color: #9f9fa9;
+  text-decoration: none;
 }
 
 .content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.content-list {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -64,14 +78,14 @@
 
 /* Blockquotes */
 .content blockquote {
-  border-left: 4px solid #515353;
+  border-left: 4px solid #2a3244;
   padding-left: 1rem;
   margin-bottom: 2.2rem;
 }
 
 /* Code Blocks */
 .content pre {
-  background: #bee402;
+  background: #2a3244;
   padding: 15px;
   border-radius: 5px;
   overflow-x: auto;
@@ -84,19 +98,8 @@
   font-family: "Courier New", monospace;
 }
 
-/* Links */
-.content a {
-  color: #a3d8fc;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.content a:hover {
-  text-decoration: underline;
-}
-
 .content hr {
-  border: 1px solid #012944;
+  border: 1px solid #2a3244;
   margin-bottom: 2rem;
 }
 

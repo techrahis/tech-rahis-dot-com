@@ -1,0 +1,21 @@
+{{ $favicon := resources.Get "images/favicon.png" }} {{ $sizes := dict "16"
+"favicon_16x16.png" "32" "favicon_32x32.png" "48" "favicon_48x48.png" "180"
+"favicon_180x180.png" "192" "favicon_192x192.png" "512" "favicon_512x512.png" }}
+{{ range $size, $name := $sizes }} {{ $resized := $favicon.Resize (printf
+"%dx%d" (int $size) (int $size)) }}
+<link
+  rel="icon"
+  type="image/png"
+  sizes="{{ $size }}x{{ $size }}"
+  href="{{ $resized.RelPermalink }}"
+/>
+{{ end }}
+
+<!-- Apple Touch Icon -->
+{{ $apple := $favicon.Resize "180x180" }}
+<link rel="apple-touch-icon" href="{{ $apple.RelPermalink }}" />
+
+<!-- Windows Tile -->
+{{ $msTile := $favicon.Resize "150x150" }}
+<meta name="msapplication-TileImage" content="{{ $msTile.RelPermalink }}" />
+<meta name="msapplication-TileColor" content="#ffffff" />

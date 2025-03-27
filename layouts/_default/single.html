@@ -1,7 +1,10 @@
 {{ define "main" }}
 <h1 class="content-title">{{ .Title }}</h1>
 <h2 class="content-author">
-  {{ with .Params.author }}{{ . }}{{ else }}Unknown Author{{ end }}
+  <a href="/"
+    >{{ with .Params.author }}{{ . }}{{ else }}Unknown Author{{ end }}</a
+  >
 </h2>
 <div class="content">{{ .Content }}</div>
+<a class="back-to-home" href="/">← Back to Home</a>
 {{ end }}

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<h1 class="content-title">Writing</h1>
+<h2 class="content-author">
+  <a href="/">{{ .Site.Data.about.name }}</a>
+</h2>
+<ul class="content-list">
+  {{ range where .Site.RegularPages "Type" "writing" }}
+  <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+
+<a class="back-to-home" href="/">← Back to Home</a>
+{{ end }}

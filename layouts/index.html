@@ -13,15 +13,17 @@
   Writing <a href="/writing" class="view-all">View All →</a>
 </h2>
 <ul>
-  {{ range first 3 (where .Site.RegularPages "Type" "writing") }}
+  {{ range (where .Site.RegularPages "Params.star" true) }}
   <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
   {{ end }}
 </ul>
 
 <h2 class="heading-1">Work <a href="/work" class="view-all">View All →</a></h2>
 <ul>
-  {{ range first 3 (where .Site.RegularPages "Type" "work") }}
-  <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ range (where .Site.Data.work "star" true) }}
+  <li>
+    <a href="{{ .github }}" target="_blank">{{ .title }}</a>
+  </li>
   {{ end }}
 </ul>
 
