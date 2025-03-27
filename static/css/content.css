@@ -95,6 +95,11 @@
   text-decoration: underline;
 }
 
+.content hr {
+  border: 1px solid #012944;
+  margin-bottom: 2rem;
+}
+
 /* Tables */
 .content table {
   width: 100%;
