@@ -2,7 +2,7 @@
 title: "Understanding Blade Template in Laravel"
 author: "Rajarshi Samaddar"
 date: 2024-12-28
-description: "The reason I love building things."
+description: "Learn about Blade Template in Laravel, its key features, and how it simplifies PHP templating in web development."
 type: "writing"
 star: true
 ---

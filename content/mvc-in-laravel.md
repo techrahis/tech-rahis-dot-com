@@ -2,7 +2,7 @@
 title: "Understanding MVC in Laravel."
 author: "Rajarshi Samaddar"
 date: 2024-12-21
-description: "The reason I love building things."
+description: "Learn about the Model-View-Controller (MVC) architecture in Laravel and how to create Views and Controllers in a Laravel application."
 type: "writing"
 star: true
 ---

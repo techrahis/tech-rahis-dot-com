@@ -2,7 +2,7 @@
 title: "Understanding Routing in Laravel & Ways to Write Route"
 author: "Rajarshi Samaddar"
 date: 2024-12-22
-description: "The reason I love building things."
+description: "Learn how routing works in Laravel and explore different ways to write routes, including passing parameters and using the route helper."
 type: "writing"
 star: true
 ---
