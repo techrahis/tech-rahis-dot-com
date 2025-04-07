@@ -1,19 +1,24 @@
-- title: Naukri Lite
+- title: Spirited Art
   author: Rajarshi Samaddar
-  github: https://github.com/techrahis
+  github: https://github.com/techrahis/spirited-art
   star: true
 
 - title: Unicever
   author: Rajarshi Samaddar
-  github: https://github.com/techrahis
+  github: https://github.com/techrahis/unicever
   star: true
 
 - title: Link Array
   author: Rajarshi Samaddar
-  github: https://github.com/techrahis
+  github: https://github.com/techrahis/link-array
   star: true
 
 - title: File Flipper
   author: Rajarshi Samaddar
-  github: https://github.com/techrahis
+  github: https://github.com/techrahis/file-flipper
+  star: true
+
+- title: Skycast
+  author: Rajarshi Samaddar
+  github: https://github.com/techrahis/skycast
   star: true

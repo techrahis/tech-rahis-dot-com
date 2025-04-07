@@ -1,0 +1,36 @@
+{{ define "main" }}
+<h1 class="content-title">Resume</h1>
+<h2 class="content-author">
+  <a href="/">{{ .Site.Data.about.name }}</a>
+</h2>
+
+<div class="resume-container">
+  <img
+    src="{{ .Site.BaseURL }}/resume.png"
+    alt="Resume Preview"
+    class="resume-preview"
+  />
+</div>
+
+<div class="resume-btn-container">
+  <a
+    href="{{ .Site.BaseURL }}/resume.pdf"
+    class="resume-btn"
+    download="Rajarshi_Resume.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    ↓ Download Resume [PDF]
+  </a>
+  <a
+    href="{{ .Site.BaseURL }}/resume.pdf"
+    class="resume-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    👁 View Resume [PDF]
+  </a>
+</div>
+
+<a href="/">← Back to Home</a>
+{{ end }}
