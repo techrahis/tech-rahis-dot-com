@@ -18,7 +18,27 @@
   github: https://github.com/techrahis/file-flipper
   star: true
 
+- title: Next Image Gallery
+  author: Rajarshi Samaddar
+  github: https://github.com/techrahis/next-image-gallery
+  star: true
+
 - title: Skycast
   author: Rajarshi Samaddar
   github: https://github.com/techrahis/skycast
   star: true
+
+- title: Apna Task Manager
+  author: Rajarshi Samaddar
+  github: https://apna-task-manager.netlify.app/
+  star: false
+
+- title: Apna Movie Database
+  author: Rajarshi Samaddar
+  github: https://amdb25.netlify.app/
+  star: false
+
+- title: Order Xpress V23
+  author: Rajarshi Samaddar
+  github: https://orderxpressv23.netlify.app/
+  star: false
